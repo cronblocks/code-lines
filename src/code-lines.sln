@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinesCounterLib", "LinesCounterLib\LinesCounterLib.csproj", "{0F0DD78C-12B2-404F-9B12-88F7459DB72D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinesCounterLib.App.WPF", "LinesCounterLib.App.WPF\LinesCounterLib.App.WPF.csproj", "{CA5498BD-ADBF-4881-AEA8-74614D99304C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0F0DD78C-12B2-404F-9B12-88F7459DB72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F0DD78C-12B2-404F-9B12-88F7459DB72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F0DD78C-12B2-404F-9B12-88F7459DB72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
