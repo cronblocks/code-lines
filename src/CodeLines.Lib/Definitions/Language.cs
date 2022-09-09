@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CodeLines.Lib.Definitions
 {
-    internal enum Language
+    public enum Language
     {
         //-------------------- A
         //-------------------- B
