@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLines.Lib", "CodeLines.Lib\CodeLines.Lib.csproj", "{0F0DD78C-12B2-404F-9B12-88F7459DB72D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeLines.Lib", "CodeLines.Lib\CodeLines.Lib.csproj", "{0F0DD78C-12B2-404F-9B12-88F7459DB72D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLines.App.WPF", "CodeLines.App.WPF\CodeLines.App.WPF.csproj", "{CA5498BD-ADBF-4881-AEA8-74614D99304C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeLines.App.WPF", "CodeLines.App.WPF\CodeLines.App.WPF.csproj", "{CA5498BD-ADBF-4881-AEA8-74614D99304C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLines.App.Console", "CodeLines.App.Console\CodeLines.App.Console.csproj", "{495F141B-8D09-4917-9A66-D273E9D64B59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5498BD-ADBF-4881-AEA8-74614D99304C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495F141B-8D09-4917-9A66-D273E9D64B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495F141B-8D09-4917-9A66-D273E9D64B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495F141B-8D09-4917-9A66-D273E9D64B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495F141B-8D09-4917-9A66-D273E9D64B59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
