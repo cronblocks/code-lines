@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinesCounterLib", "LinesCounterLib\LinesCounterLib.csproj", "{0F0DD78C-12B2-404F-9B12-88F7459DB72D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLines.Lib", "LinesCounterLib\CodeLines.Lib.csproj", "{0F0DD78C-12B2-404F-9B12-88F7459DB72D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinesCounterLib.App.WPF", "LinesCounterLib.App.WPF\LinesCounterLib.App.WPF.csproj", "{CA5498BD-ADBF-4881-AEA8-74614D99304C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLines.App.WPF", "LinesCounterLib.App.WPF\CodeLines.App.WPF.csproj", "{CA5498BD-ADBF-4881-AEA8-74614D99304C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
