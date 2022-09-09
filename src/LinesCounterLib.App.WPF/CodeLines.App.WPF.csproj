@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinesCounterLib\LinesCounterLib.csproj" />
+    <ProjectReference Include="..\LinesCounterLib\CodeLines.Lib.csproj" />
   </ItemGroup>
 
 </Project>
