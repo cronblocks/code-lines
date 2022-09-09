@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CodeLines.Lib.Definitions
+﻿namespace CodeLines.Lib.Definitions
 {
     public enum Language
     {
