@@ -9,4 +9,8 @@
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LinesCounterLib\LinesCounterLib.csproj" />
+  </ItemGroup>
+
 </Project>
