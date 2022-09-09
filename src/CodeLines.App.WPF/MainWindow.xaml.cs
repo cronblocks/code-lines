@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LinesCounterLib.App.WPF
+namespace CodeLines.App.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
