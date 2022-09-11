@@ -1,4 +1,4 @@
-﻿namespace CodeLines.Lib.Definitions
+﻿namespace CodeLines.Lib.Types
 {
     public enum Language
     {
