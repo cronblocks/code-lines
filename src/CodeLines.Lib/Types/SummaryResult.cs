@@ -1,6 +1,6 @@
 ﻿namespace CodeLines.Lib.Types
 {
-    public class Result
+    public class SummaryResult
     {
         public Language Language { get; }
 
