@@ -6,5 +6,6 @@ namespace CodeLines.Lib.Types
 {
     public class ResultSet
     {
+        public SummaryResult SummaryResults { get; set; }
     }
 }
