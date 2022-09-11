@@ -2,10 +2,10 @@
 {
     public class SummaryResult
     {
-        public Language Language { get; }
+        public Language Language { get; set; }
 
-        public ulong TotalLines { get; }
-        public ulong CommentLines { get; }
-        public ulong CodeLines { get; }
+        public ulong TotalLines { get; set; }
+        public ulong CommentLines { get; set; }
+        public ulong CodeLines { get; set; }
     }
 }
