@@ -10,6 +10,7 @@ namespace CodeLines.Lib.Providers
             Name = dirname;
 
             IsNameDir = FilesProvider.IsDirectory(dirname);
+            IsNameFile = FilesProvider.IsFile(dirname);
         }
 
         public string Name { get; }
