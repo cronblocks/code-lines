@@ -2,5 +2,9 @@
 {
     internal class FilesProvider
     {
+        public FilesProvider(string dirname)
+        {
+
+        }
     }
 }
