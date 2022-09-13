@@ -2,11 +2,11 @@
 {
     internal class FilesProvider
     {
-        private readonly string dirname;
-
         public FilesProvider(string dirname)
         {
-            this.dirname = dirname;
+            DirName = dirname;
         }
+
+        public string DirName { get; }
     }
 }
