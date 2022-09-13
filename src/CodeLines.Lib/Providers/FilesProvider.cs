@@ -9,17 +9,22 @@ namespace CodeLines.Lib.Providers
         {
             Name = dirname;
 
-            IsDir = FilesProvider.IsDirectory(dirname);
+            IsNameDir = FilesProvider.IsDirectory(dirname);
         }
 
         public string Name { get; }
 
-        public bool IsDir { get; }
-        public bool IsFile { get; }
+        public bool IsNameDir { get; }
+        public bool IsNameFile { get; }
 
         public static bool IsDirectory(string dirname)
         {
             return Directory.Exists(dirname);
+        }
+
+        public static bool IsFile(string filename)
+        {
+            return File.Exists(filename);
         }
     }
 }
