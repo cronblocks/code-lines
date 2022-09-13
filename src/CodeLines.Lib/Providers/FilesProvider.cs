@@ -7,10 +7,15 @@ namespace CodeLines.Lib.Providers
     {
         public FilesProvider(string dirname)
         {
-            DirName = dirname;
+            Name = dirname;
+
+            IsDir = FilesProvider.IsDirectory(dirname);
         }
 
-        public string DirName { get; }
+        public string Name { get; }
+
+        public bool IsDir { get; }
+        public bool IsFile { get; }
 
         public static bool IsDirectory(string dirname)
         {
