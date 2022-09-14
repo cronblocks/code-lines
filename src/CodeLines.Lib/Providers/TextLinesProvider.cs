@@ -13,9 +13,23 @@ namespace CodeLines.Lib.Providers
             {
                 throw new FileNotFoundException(filename);
             }
+
+            TotalLines = GetTotalLines();
         }
 
         public string Filename { get; }
         public ulong TotalLines { get; set; }
+
+        private ulong GetTotalLines()
+        {
+            ulong total = 0;
+
+            foreach (string line in File.ReadLines(Filename))
+            {
+                total++;
+            }
+
+            return total;
+        }
     }
 }
