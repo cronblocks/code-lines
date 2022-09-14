@@ -13,9 +13,9 @@ namespace CodeLines.Lib
             Action<string> messageLinePrintFunc,
             LogLevel logLevel = LogLevel.Info)
         {
-            DirOrFilename = dir_or_filename;
-            LogLevel = logLevel;
+            DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
+            LogLevel = logLevel;
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
