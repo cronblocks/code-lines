@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace CodeLines.Lib.Providers
 {
@@ -19,20 +20,22 @@ namespace CodeLines.Lib.Providers
             }
         }
 
-        public string NextFilename()
+        public IEnumerable<string> NextFilename()
         {
             if (IsNameFile)
             {
                 string retval = _next;
                 _next = null;
-                return retval;
+
+                yield return retval;
             }
             else if (IsNameDirectory)
             {
-
+                foreach (string filename in Directory.EnumerateFiles(Name, "*", SearchOption.AllDirectories))
+                {
+                    yield return filename;
+                }
             }
-
-            return null;
         }
 
         public string Name { get; }
