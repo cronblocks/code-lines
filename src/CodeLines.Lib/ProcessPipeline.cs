@@ -13,9 +13,9 @@ namespace CodeLines.Lib
 
         public ProcessPipeline(string dir_or_filename, Logger logger)
         {
-            DirOrFilename = dir_or_filename;
+            DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
 
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             _filesProvider = new FilesProvider(DirOrFilename);
         }
