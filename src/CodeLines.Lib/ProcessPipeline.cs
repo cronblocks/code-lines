@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CodeLines.Lib
 {
-    internal class ProcessPipeline
+    internal partial class ProcessPipeline
     {
         private FilesProvider _filesProvider;
         private Logger _logger;
