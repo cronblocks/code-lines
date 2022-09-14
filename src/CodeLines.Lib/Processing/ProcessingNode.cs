@@ -26,18 +26,18 @@ namespace CodeLines.Lib.Processing
             }
             else
             {
-                string[] extensions = fileExtensions.Split(new char[] { ';', '|', ',', '/' }, StringSplitOptions.RemoveEmptyEntries);
+                string[] extensions = fileExtensions.Split(new char[] { ';', '|', ',', '/', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 FileExtensionsList = new List<string>();
                 foreach (string ext in extensions)
                 {
-                    if (ext.StartsWith("."))
+                    if (ext.Trim().StartsWith("."))
                     {
-                        FileExtensionsList.Add(ext);
+                        FileExtensionsList.Add(ext.Trim());
                     }
                     else
                     {
-                        FileExtensionsList.Add("." + ext);
+                        FileExtensionsList.Add("." + ext.Trim());
                     }
                 }
             }
