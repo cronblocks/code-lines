@@ -9,22 +9,18 @@ namespace CodeLines.Lib
     internal class ProcessPipeline
     {
         private FilesProvider _filesProvider;
+        private Logger _logger;
 
-        public ProcessPipeline(
-            string dir_or_filename,
-            Action<string> messageLinePrintFunc,
-            LogLevel logLevel = LogLevel.Info)
+        public ProcessPipeline(string dir_or_filename, Logger logger)
         {
             DirOrFilename = dir_or_filename;
-            LogLevel = logLevel;
-            MessageLinePrintFunc = messageLinePrintFunc;
+
+            _logger = logger;
 
             _filesProvider = new FilesProvider(DirOrFilename);
         }
 
         public string DirOrFilename { get; }
-        public Action<string> MessageLinePrintFunc { get; }
-        public LogLevel LogLevel { get; }
 
         internal ResultSet GetResult()
         {
