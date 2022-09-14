@@ -18,3 +18,6 @@ catch (Exception ex)
 {
     Console.WriteLine($"ERROR! \"{ex.Message}\"");
 }
+
+Console.WriteLine();
+Console.WriteLine();
