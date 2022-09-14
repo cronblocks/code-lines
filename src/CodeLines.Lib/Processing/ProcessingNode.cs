@@ -1,3 +1,4 @@
+﻿using CodeLines.Lib.Helpers;
 ﻿using CodeLines.Lib.Types;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace CodeLines.Lib.Processing
         public ProcessingNode(
             Language language,
             string fileExtensions,
-            string singleLineCommentPattern, string multipleLineCommentPattern)
+            string singleLineCommentPattern, string multipleLineCommentPattern,
+            Logger logger)
         {
             Language = language;
             FileExtensions = fileExtensions ?? throw new ArgumentNullException(nameof(fileExtensions));
