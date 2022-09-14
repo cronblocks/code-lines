@@ -19,7 +19,7 @@ namespace CodeLines.Lib
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
-            _pipeline = new ProcessPipeline(dir_or_filename, messageLinePrintFunc, logLevel);
+            _pipeline = new ProcessPipeline(dir_or_filename, _logger);
         }
 
         public void Process()
