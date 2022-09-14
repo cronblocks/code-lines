@@ -52,7 +52,15 @@ namespace CodeLines.Lib.Processing
 
         public bool IsFileProcessable(string filename)
         {
-            throw new NotImplementedException();
+            foreach (string ext in FileExtensionsList)
+            {
+                if (filename.EndsWith(ext, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public FileResult ProcessFile()
