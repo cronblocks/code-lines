@@ -19,7 +19,7 @@ namespace CodeLines.Lib.Providers
             }
         }
 
-        public string GetNext()
+        public string NextFilename()
         {
             if (IsNameFile)
             {
