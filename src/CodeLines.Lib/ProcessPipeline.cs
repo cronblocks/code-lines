@@ -33,7 +33,10 @@ namespace CodeLines.Lib
 
         internal void Process()
         {
-            throw new NotImplementedException();
+            foreach (string filename in _filesProvider.NextFilename())
+            {
+
+            }
         }
     }
 }
