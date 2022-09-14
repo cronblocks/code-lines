@@ -10,6 +10,7 @@ namespace CodeLines.Lib
     {
         private FilesProvider _filesProvider;
         private Logger _logger;
+        private ResultSet _resultSet;
 
         public ProcessPipeline(string dir_or_filename, Logger logger)
         {
@@ -18,13 +19,14 @@ namespace CodeLines.Lib
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             _filesProvider = new FilesProvider(DirOrFilename);
+            _resultSet = new ResultSet();
         }
 
         public string DirOrFilename { get; }
 
         internal ResultSet GetResult()
         {
-            throw new NotImplementedException();
+            return _resultSet;
         }
 
         internal void Process()
