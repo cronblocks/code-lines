@@ -20,6 +20,7 @@ namespace CodeLines.Lib.Processing
 
         public Language Language { get; }
         public string FileExtensions { get; }
+        public List<string> FileExtensionsList { get; }
         public string SingleLineCommentPattern { get; }
         public string MultipleLineCommentPattern { get; }
 
