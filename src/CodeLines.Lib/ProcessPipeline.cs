@@ -20,6 +20,8 @@ namespace CodeLines.Lib
 
             _filesProvider = new FilesProvider(DirOrFilename);
             _resultSet = new ResultSet();
+
+            CreatePipeline();
         }
 
         public string DirOrFilename { get; }
