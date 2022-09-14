@@ -1,5 +1,5 @@
 ﻿using CodeLines.Lib.Helpers;
-﻿using CodeLines.Lib.Types;
+using CodeLines.Lib.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +25,7 @@ namespace CodeLines.Lib.Processing
         public List<string> FileExtensionsList { get; }
         public string SingleLineCommentPattern { get; }
         public string MultipleLineCommentPattern { get; }
+        public Logger Logger { get; }
 
         public bool IsFileProcessable(string filename)
         {
