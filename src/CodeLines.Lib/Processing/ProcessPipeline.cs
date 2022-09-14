@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CodeLines.Lib
+namespace CodeLines.Lib.Processing
 {
     internal partial class ProcessPipeline
     {
