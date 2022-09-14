@@ -21,17 +21,17 @@ namespace CodeLines.Lib
 
         public void Process()
         {
-
+            _pipeline.Process();
         }
 
         public void PrintResult()
         {
-
+            ResultSet rs = GetResult();
         }
 
         public ResultSet GetResult()
         {
-            return null;
+            return _pipeline.GetResult();
         }
 
         public string DirOrFilename { get; }

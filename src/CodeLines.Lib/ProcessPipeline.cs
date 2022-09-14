@@ -20,5 +20,15 @@ namespace CodeLines.Lib
         public string DirOrFilename { get; }
         public Action<string> MessageLinePrintFunc { get; }
         public LogLevel LogLevel { get; }
+
+        internal ResultSet GetResult()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Process()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
