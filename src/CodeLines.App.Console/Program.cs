@@ -7,6 +7,8 @@ try
 {
     LinesCounter counter = new LinesCounter("C:\\Users\\usama\\source\\repos\\ESerial", Console.WriteLine);
 
+    counter.Process();
+    counter.PrintResult();
 }
 catch (NeitherFileNorDirectoryException ex)
 {
