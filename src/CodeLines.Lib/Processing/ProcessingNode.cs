@@ -2,6 +2,7 @@
 using CodeLines.Lib.Types;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace CodeLines.Lib.Processing
@@ -52,6 +53,13 @@ namespace CodeLines.Lib.Processing
 
         public bool IsFileProcessable(string filename)
         {
+            filename = filename.Trim();
+
+            if (!File.Exists(filename))
+            {
+                return false;
+            }
+
             foreach (string ext in FileExtensionsList)
             {
                 if (filename.EndsWith(ext, StringComparison.OrdinalIgnoreCase))
