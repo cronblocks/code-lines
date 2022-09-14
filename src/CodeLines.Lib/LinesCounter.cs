@@ -6,6 +6,7 @@ namespace CodeLines.Lib
     public class LinesCounter
     {
         private ProcessPipeline _pipeline;
+        private Logger _logger;
 
         public LinesCounter(
             string dir_or_filename,
@@ -15,6 +16,8 @@ namespace CodeLines.Lib
             DirOrFilename = dir_or_filename;
             LogLevel = logLevel;
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
+
+            _logger = new Logger(logLevel, messageLinePrintFunc);
 
             _pipeline = new ProcessPipeline(dir_or_filename, messageLinePrintFunc, logLevel);
         }
