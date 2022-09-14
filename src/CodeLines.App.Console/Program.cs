@@ -2,4 +2,4 @@
 
 Console.WriteLine("Code Lines!");
 
-LinesCounter counter = new LinesCounter("C:\\Users\\usama\\source\\repos\\ESerial");
+LinesCounter counter = new LinesCounter("C:\\Users\\usama\\source\\repos\\ESerial", Console.WriteLine);

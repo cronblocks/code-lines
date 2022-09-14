@@ -9,16 +9,16 @@ namespace CodeLines.Lib
     {
         public LinesCounter(
             string dir_or_filename,
-            Action<string> messagePrint,
+            Action<string> messageLinePrintFunc,
             LogLevel logLevel = LogLevel.Info)
         {
             DirOrFilename = dir_or_filename;
             LogLevel = logLevel;
-            MessagePrint = messagePrint;
+            MessageLinePrintFunc = messageLinePrintFunc;
         }
 
         public string DirOrFilename { get; }
-        public Action<string> MessagePrint { get; }
+        public Action<string> MessageLinePrintFunc { get; }
         public LogLevel LogLevel { get; }
     }
 }
