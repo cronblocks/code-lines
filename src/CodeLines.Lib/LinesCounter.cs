@@ -17,6 +17,21 @@ namespace CodeLines.Lib
             MessageLinePrintFunc = messageLinePrintFunc;
         }
 
+        public void Process()
+        {
+
+        }
+
+        public void PrintResult()
+        {
+
+        }
+
+        public ResultSet GetResult()
+        {
+            return null;
+        }
+
         public string DirOrFilename { get; }
         public Action<string> MessageLinePrintFunc { get; }
         public LogLevel LogLevel { get; }
