@@ -24,6 +24,23 @@ namespace CodeLines.Lib.Processing
             {
                 logger.Log($"Invalid file extension \"{fileExtensions}\"", LogLevel.Warn);
             }
+            else
+            {
+                string[] extensions = fileExtensions.Split(new char[] { ';', '|', ',', '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+                FileExtensionsList = new List<string>();
+                foreach (string ext in extensions)
+                {
+                    if (ext.StartsWith("."))
+                    {
+                        FileExtensionsList.Add(ext);
+                    }
+                    else
+                    {
+                        FileExtensionsList.Add("." + ext);
+                    }
+                }
+            }
         }
 
         public Language Language { get; }
