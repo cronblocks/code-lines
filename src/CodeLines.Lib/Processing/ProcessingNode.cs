@@ -22,5 +22,15 @@ namespace CodeLines.Lib.Processing
         public string FileExtensions { get; }
         public string SingleLineCommentPattern { get; }
         public string MultipleLineCommentPattern { get; }
+
+        public bool IsFileProcessable(string filename)
+        {
+            throw new NotImplementedException();
+        }
+
+        public FileResult ProcessFile()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
