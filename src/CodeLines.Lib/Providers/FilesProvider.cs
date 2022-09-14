@@ -12,6 +12,27 @@ namespace CodeLines.Lib.Providers
 
             IsNameDirectory = IsDirectory(dirname);
             IsNameFile = IsFile(dirname);
+
+            if (IsNameFile)
+            {
+                _next = dirname;
+            }
+        }
+
+        public string GetNext()
+        {
+            if (IsNameFile)
+            {
+                string retval = _next;
+                _next = null;
+                return retval;
+            }
+            else if (IsNameDirectory)
+            {
+
+            }
+
+            return null;
         }
 
         public string Name { get; }
