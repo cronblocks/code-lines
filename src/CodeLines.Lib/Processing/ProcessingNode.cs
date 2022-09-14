@@ -11,13 +11,15 @@ namespace CodeLines.Lib.Processing
         public ProcessingNode(
             Language language,
             string fileExtensions,
-            string singleLineCommentPattern, string multipleLineCommentPattern,
+            string singleLineCommentPattern,
+            string multipleLineCommentStartPattern, string multipleLineCommentEndPattern,
             Logger logger)
         {
             Language = language;
             FileExtensions = fileExtensions ?? throw new ArgumentNullException(nameof(fileExtensions));
             SingleLineCommentPattern = singleLineCommentPattern ?? throw new ArgumentNullException(nameof(singleLineCommentPattern));
-            MultipleLineCommentPattern = multipleLineCommentPattern ?? throw new ArgumentNullException(nameof(multipleLineCommentPattern));
+            MultipleLineCommentStartPattern = multipleLineCommentStartPattern ?? throw new ArgumentNullException(nameof(multipleLineCommentStartPattern));
+            MultipleLineCommentEndPattern = multipleLineCommentEndPattern ?? throw new ArgumentNullException(nameof(multipleLineCommentEndPattern));
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
             if (string.IsNullOrEmpty(FileExtensions))
@@ -47,7 +49,8 @@ namespace CodeLines.Lib.Processing
         public string FileExtensions { get; }
         public List<string> FileExtensionsList { get; }
         public string SingleLineCommentPattern { get; }
-        public string MultipleLineCommentPattern { get; }
+        public string MultipleLineCommentStartPattern { get; }
+        public string MultipleLineCommentEndPattern { get; }
         public Logger Logger { get; }
 
         public bool IsFileProcessable(string filename)
