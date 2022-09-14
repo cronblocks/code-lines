@@ -33,6 +33,12 @@ namespace CodeLines.Lib
 
             MessageLinePrintFunc("Summary:");
 
+            if (rs.SummaryResults.Count == 0)
+            {
+                MessageLinePrintFunc("    No code lines found");
+                return;
+            }
+
             MessageLinePrintFunc($"    "      +
                     $"{"Language":-10} : "    +
                     $"{"Total Lines":-14} "   +
