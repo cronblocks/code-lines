@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace CodeLines.Lib.Providers
@@ -15,6 +15,11 @@ namespace CodeLines.Lib.Providers
             }
 
             TotalLines = GetTotalLines();
+        }
+
+        public IEnumerable<string> NextLine()
+        {
+            return File.ReadLines(Filename);
         }
 
         public string Filename { get; }
