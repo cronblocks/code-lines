@@ -14,7 +14,7 @@ namespace CodeLines.Lib
         {
             DirOrFilename = dir_or_filename;
             LogLevel = logLevel;
-            MessageLinePrintFunc = messageLinePrintFunc;
+            MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
 
             _pipeline = new ProcessPipeline(dir_or_filename, messageLinePrintFunc, logLevel);
         }
