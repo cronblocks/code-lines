@@ -18,6 +18,12 @@ namespace CodeLines.Lib.Processing
             FileExtensions = fileExtensions ?? throw new ArgumentNullException(nameof(fileExtensions));
             SingleLineCommentPattern = singleLineCommentPattern ?? throw new ArgumentNullException(nameof(singleLineCommentPattern));
             MultipleLineCommentPattern = multipleLineCommentPattern ?? throw new ArgumentNullException(nameof(multipleLineCommentPattern));
+            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
+            if (string.IsNullOrEmpty(FileExtensions))
+            {
+                logger.Log($"Invalid file extension \"{fileExtensions}\"", LogLevel.Warn);
+            }
         }
 
         public Language Language { get; }
