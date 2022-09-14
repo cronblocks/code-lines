@@ -4,25 +4,27 @@ namespace CodeLines.Lib.Providers
 {
     internal class FilesProvider
     {
+        private string _next;
+
         public FilesProvider(string dirname)
         {
             Name = dirname;
 
-            IsNameDir = FilesProvider.IsDirectory(dirname);
-            IsNameFile = FilesProvider.IsFile(dirname);
+            IsNameDirectory = IsDirectory(dirname);
+            IsNameFile = IsFile(dirname);
         }
 
         public string Name { get; }
 
-        public bool IsNameDir { get; }
+        public bool IsNameDirectory { get; }
         public bool IsNameFile { get; }
 
-        public static bool IsDirectory(string dirname)
+        private bool IsDirectory(string dirname)
         {
             return Directory.Exists(dirname);
         }
 
-        public static bool IsFile(string filename)
+        private bool IsFile(string filename)
         {
             return File.Exists(filename);
         }
