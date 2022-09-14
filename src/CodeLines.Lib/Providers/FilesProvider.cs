@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CodeLines.Lib.Exceptions;
+using System.Collections.Generic;
 using System.IO;
 
 namespace CodeLines.Lib.Providers
@@ -17,6 +18,11 @@ namespace CodeLines.Lib.Providers
             if (IsNameFile)
             {
                 _next = dirname;
+            }
+
+            if (!IsNameDirectory && !IsNameFile)
+            {
+                throw new NeitherFileNorDirectoryException(dirname);
             }
         }
 
