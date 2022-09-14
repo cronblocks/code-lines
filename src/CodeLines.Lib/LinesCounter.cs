@@ -7,7 +7,7 @@ namespace CodeLines.Lib
 {
     public class LinesCounter
     {
-        public LinesCounter(string dir_or_filename, LogLevel logLevel)
+        public LinesCounter(string dir_or_filename, LogLevel logLevel = LogLevel.Info)
         {
             DirOrFilename = dir_or_filename;
             LogLevel = logLevel;
