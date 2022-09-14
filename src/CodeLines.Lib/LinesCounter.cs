@@ -1,4 +1,5 @@
-﻿using CodeLines.Lib.Types;
+﻿using CodeLines.Lib.Processing;
+using CodeLines.Lib.Types;
 using System;
 
 namespace CodeLines.Lib
