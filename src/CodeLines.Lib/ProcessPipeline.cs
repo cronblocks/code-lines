@@ -31,7 +31,7 @@ namespace CodeLines.Lib
         {
             foreach (string filename in _filesProvider.NextFilename())
             {
-
+                _logger.Log($"Processing {filename}", LogLevel.Info);
             }
         }
     }
