@@ -1,7 +1,7 @@
 ﻿using CodeLines.Lib.Types;
 using System;
 
-namespace CodeLines.Lib
+namespace CodeLines.Lib.Processing
 {
     internal class Logger
     {
