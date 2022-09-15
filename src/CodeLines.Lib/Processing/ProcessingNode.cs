@@ -74,7 +74,7 @@ namespace CodeLines.Lib.Processing
             return false;
         }
 
-        public FileResult ProcessFile(TextLinesProvider textLinesProvider)
+        public FileResult ProcessFile(string filename, TextLinesProvider textLinesProvider)
         {
             throw new NotImplementedException();
         }

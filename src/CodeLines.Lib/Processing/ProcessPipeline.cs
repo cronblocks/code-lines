@@ -54,7 +54,7 @@ namespace CodeLines.Lib.Processing
 
                     if (textLinesProvider != null)
                     {
-                        UpdateResultSet(node.ProcessFile(textLinesProvider));
+                        UpdateResultSet(node.ProcessFile(filename, textLinesProvider));
                     }
                 }
                 else
