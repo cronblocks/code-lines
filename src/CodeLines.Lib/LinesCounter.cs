@@ -42,7 +42,7 @@ namespace CodeLines.Lib
             }
 
             MessageLinePrintFunc($"    "      +
-                    $"{"Language":-10} : "    +
+                    $"{"Language",-10} : "    +
                     $"{"Total Lines":-14} "   +
                     $"{"Blank Lines":-14} "   +
                     $"{"Comment Lines":-14} " +
@@ -51,11 +51,11 @@ namespace CodeLines.Lib
             foreach (SummaryResult summaryResult in rs.SummaryResults)
             {
                 MessageLinePrintFunc($"    "             +
-                    $"{summaryResult.Language:-10} : "   +
-                    $"{summaryResult.TotalLines:-14} "   +
-                    $"{summaryResult.BlankLines:-14} "   +
-                    $"{summaryResult.CommentLines:-14} " +
-                    $"{summaryResult.CodeLines:-14}");
+                    $"{summaryResult.Language.StringName(),-10} : "   +
+                    $"{summaryResult.TotalLines,-14} "   +
+                    $"{summaryResult.BlankLines,-14} "   +
+                    $"{summaryResult.CommentLines,-14} " +
+                    $"{summaryResult.CodeLines,-14}");
             }
         }
 
