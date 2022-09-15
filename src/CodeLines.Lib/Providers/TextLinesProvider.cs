@@ -5,6 +5,9 @@ namespace CodeLines.Lib.Providers
 {
     internal class TextLinesProvider
     {
+        private ulong _totalLines;
+        private bool _isTotalLinesCounted;
+
         public TextLinesProvider(string filename)
         {
             Filename = filename;
