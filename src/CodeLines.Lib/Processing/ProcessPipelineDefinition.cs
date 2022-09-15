@@ -15,5 +15,18 @@ namespace CodeLines.Lib.Processing
             _processingNodes.Add(new ProcessingNode(Language.CPlusPlus, "cpp,h,hpp", @"//", @"/*", @"*/", _logger));
             _processingNodes.Add(new ProcessingNode(Language.CSharp,    "cs",        @"//", @"/*", @"*/", _logger));
         }
+
+        private ProcessingNode GetProcessingNode(string filename)
+        {
+            foreach (ProcessingNode node in _processingNodes)
+            {
+                if (node.IsFileProcessable(filename))
+                {
+                    return node;
+                }
+            }
+
+            return null;
+        }
     }
 }
