@@ -41,6 +41,7 @@ namespace CodeLines.Lib.Processing
                     _logger.Log($"Processing {filename}", LogLevel.Info);
 
                     TextLinesProvider textLinesProvider;
+
                     try
                     {
                         textLinesProvider = new TextLinesProvider(filename);
@@ -53,7 +54,7 @@ namespace CodeLines.Lib.Processing
 
                     if (textLinesProvider != null)
                     {
-                        FileResult fileResult = node.ProcessFile(textLinesProvider);
+                        UpdateResultSet(node.ProcessFile(textLinesProvider));
                     }
                 }
                 else
@@ -61,6 +62,11 @@ namespace CodeLines.Lib.Processing
                     _logger.Log($"Skipping {filename}", LogLevel.Info);
                 }
             }
+        }
+
+        private void UpdateResultSet(FileResult fileResult)
+        {
+
         }
     }
 }
