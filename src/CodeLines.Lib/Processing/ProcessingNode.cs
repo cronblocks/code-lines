@@ -1,4 +1,5 @@
 ﻿using CodeLines.Lib.Helpers;
+using CodeLines.Lib.Providers;
 using CodeLines.Lib.Types;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace CodeLines.Lib.Processing
             return false;
         }
 
-        public FileResult ProcessFile()
+        public FileResult ProcessFile(TextLinesProvider textLinesProvider)
         {
             throw new NotImplementedException();
         }
