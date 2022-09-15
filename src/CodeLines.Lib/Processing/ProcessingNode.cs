@@ -76,7 +76,28 @@ namespace CodeLines.Lib.Processing
 
         public FileResult ProcessFile(string filename, TextLinesProvider textLinesProvider)
         {
-            throw new NotImplementedException();
+            FileResult fr = new FileResult()
+            {
+                Filename = filename,
+                Language = Language,
+                BlankLines = 0,
+                CommentLines = 0,
+                CodeLines = 0
+            };
+
+            foreach (string line in textLinesProvider.NextLine())
+            {
+                string trimmedLine = line.Trim();
+
+                if (string.IsNullOrEmpty(trimmedLine))
+                {
+                    fr.BlankLines++;
+                }
+            }
+
+            fr.TotalLines = textLinesProvider.TotalLines;
+
+            return fr;
         }
     }
 }
