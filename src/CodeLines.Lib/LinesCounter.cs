@@ -41,21 +41,21 @@ namespace CodeLines.Lib
                 return;
             }
 
-            MessageLinePrintFunc($"    "      +
-                    $"{"Language",-10} : "    +
-                    $"{"Total Lines",-14} "   +
-                    $"{"Blank Lines",-14} "   +
-                    $"{"Comment Lines",-14} " +
-                    $"{"Code Lines",-14}");
+            MessageLinePrintFunc($"    "        +
+                    $"{"Language",-20} : "      +
+                    $"{"Total Lines",-16} : "   +
+                    $"{"Blank Lines",-16} : "   +
+                    $"{"Comment Lines",-16} : " +
+                    $"{"Code Lines",-16} :");
 
             foreach (SummaryResult summaryResult in rs.SummaryResults)
             {
                 MessageLinePrintFunc($"    "             +
-                    $"{summaryResult.Language.StringName(),-10} : "   +
-                    $"{summaryResult.TotalLines,-14} "   +
-                    $"{summaryResult.BlankLines,-14} "   +
-                    $"{summaryResult.CommentLines,-14} " +
-                    $"{summaryResult.CodeLines,-14}");
+                    $"{summaryResult.Language.StringName(),-20} : "   +
+                    $"{summaryResult.TotalLines,-16} : "   +
+                    $"{summaryResult.BlankLines,-16} : "   +
+                    $"{summaryResult.CommentLines,-16} : " +
+                    $"{summaryResult.CodeLines,-16} :");
             }
         }
 
