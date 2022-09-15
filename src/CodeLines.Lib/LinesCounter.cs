@@ -43,10 +43,10 @@ namespace CodeLines.Lib
 
             MessageLinePrintFunc($"    "      +
                     $"{"Language",-10} : "    +
-                    $"{"Total Lines":-14} "   +
-                    $"{"Blank Lines":-14} "   +
-                    $"{"Comment Lines":-14} " +
-                    $"{"Code Lines":-14}");
+                    $"{"Total Lines",-14} "   +
+                    $"{"Blank Lines",-14} "   +
+                    $"{"Comment Lines",-14} " +
+                    $"{"Code Lines",-14}");
 
             foreach (SummaryResult summaryResult in rs.SummaryResults)
             {
