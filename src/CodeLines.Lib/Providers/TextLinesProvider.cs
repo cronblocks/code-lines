@@ -17,7 +17,8 @@ namespace CodeLines.Lib.Providers
                 throw new FileNotFoundException(filename);
             }
 
-            TotalLines = GetTotalLines();
+            _totalLines = 0;
+            _isTotalLinesCounted = false;
         }
 
         public IEnumerable<string> NextLine()
@@ -26,7 +27,15 @@ namespace CodeLines.Lib.Providers
         }
 
         public string Filename { get; }
-        public ulong TotalLines { get; }
+        public ulong TotalLines { get {
+                if (_isTotalLinesCounted)
+                    return _totalLines;
+
+                _totalLines = GetTotalLines();
+                _isTotalLinesCounted = true;
+
+                return _totalLines;
+            } }
 
         private ulong GetTotalLines()
         {
