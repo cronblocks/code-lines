@@ -93,6 +93,10 @@ namespace CodeLines.Lib.Processing
                 {
                     fr.BlankLines++;
                 }
+                else
+                {
+
+                }
             }
 
             fr.TotalLines = textLinesProvider.TotalLines;
