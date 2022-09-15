@@ -40,8 +40,7 @@ namespace CodeLines.Lib.Processing
                 {
                     _logger.Log($"Processing {filename}", LogLevel.Info);
 
-                    TextLinesProvider textLinesProvider = null;
-
+                    TextLinesProvider textLinesProvider;
                     try
                     {
                         textLinesProvider = new TextLinesProvider(filename);
