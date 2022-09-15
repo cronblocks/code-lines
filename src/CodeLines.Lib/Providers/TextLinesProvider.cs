@@ -23,7 +23,7 @@ namespace CodeLines.Lib.Providers
         }
 
         public string Filename { get; }
-        public ulong TotalLines { get; set; }
+        public ulong TotalLines { get; }
 
         private ulong GetTotalLines()
         {
