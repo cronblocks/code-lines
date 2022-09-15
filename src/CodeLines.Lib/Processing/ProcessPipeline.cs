@@ -66,7 +66,21 @@ namespace CodeLines.Lib.Processing
 
         private void UpdateResultSet(FileResult fileResult)
         {
+            _resultSet.FileResults.Add(fileResult);
 
+            bool srExists = false;
+            SummaryResult summary;
+
+            foreach (SummaryResult sr in _resultSet.SummaryResults)
+            {
+                if (sr.Language == fileResult.Language)
+                {
+                    srExists = true;
+                    summary = sr;
+
+                    break;
+                }
+            }
         }
     }
 }
