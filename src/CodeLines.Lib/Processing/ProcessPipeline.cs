@@ -34,7 +34,16 @@ namespace CodeLines.Lib.Processing
         {
             foreach (string filename in _filesProvider.NextFilename())
             {
-                _logger.Log($"Processing {filename}", LogLevel.Info);
+                ProcessingNode node = GetProcessingNode(filename);
+
+                if (node != null)
+                {
+                    _logger.Log($"Processing {filename}", LogLevel.Info);
+                }
+                else
+                {
+                    _logger.Log($"Skipping {filename}", LogLevel.Info);
+                }
             }
         }
     }
