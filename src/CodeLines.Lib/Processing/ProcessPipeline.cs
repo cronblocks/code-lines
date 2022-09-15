@@ -39,6 +39,23 @@ namespace CodeLines.Lib.Processing
                 if (node != null)
                 {
                     _logger.Log($"Processing {filename}", LogLevel.Info);
+
+                    TextLinesProvider textLinesProvider = null;
+
+                    try
+                    {
+                        textLinesProvider = new TextLinesProvider(filename);
+                    }
+                    catch (Exception ex)
+                    {
+                        textLinesProvider = null;
+                        _logger.Log($"ERROR! {ex.Message}", LogLevel.Error);
+                    }
+
+                    if (textLinesProvider != null)
+                    {
+                        FileResult fileResult = node.ProcessFile(textLinesProvider);
+                    }
                 }
                 else
                 {
