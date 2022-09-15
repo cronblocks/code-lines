@@ -69,14 +69,17 @@ namespace CodeLines.Lib.Processing
             _resultSet.FileResults.Add(fileResult);
 
             bool srExists = false;
-            SummaryResult summary;
 
             foreach (SummaryResult sr in _resultSet.SummaryResults)
             {
                 if (sr.Language == fileResult.Language)
                 {
                     srExists = true;
-                    summary = sr;
+
+                    sr.TotalLines += fileResult.TotalLines;
+                    sr.BlankLines += fileResult.BlankLines;
+                    sr.CommentLines += fileResult.CommentLines;
+                    sr.CodeLines += fileResult.CodeLines;
 
                     break;
                 }
@@ -84,10 +87,16 @@ namespace CodeLines.Lib.Processing
 
             if (!srExists)
             {
-                summary = new SummaryResult() { Language = fileResult.Language };
-                _resultSet.SummaryResults.Add(summary);
+                _resultSet.SummaryResults.Add(
+                    new SummaryResult()
+                    {
+                        Language = fileResult.Language,
+                        TotalLines = fileResult.TotalLines,
+                        BlankLines = fileResult.BlankLines,
+                        CommentLines = fileResult.CommentLines,
+                        CodeLines = fileResult.CodeLines
+                    });
             }
-
         }
     }
 }
