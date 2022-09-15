@@ -23,7 +23,16 @@ namespace CodeLines.Lib.Providers
 
         public IEnumerable<string> NextLine()
         {
-            return File.ReadLines(Filename);
+            ulong total = 0;
+
+            foreach (string line in File.ReadLines(Filename))
+            {
+                total++;
+                yield return line;
+            }
+
+            _totalLines = total;
+            _isTotalLinesCounted = true;
         }
 
         public string Filename { get; }
