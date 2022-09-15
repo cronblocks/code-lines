@@ -81,6 +81,13 @@ namespace CodeLines.Lib.Processing
                     break;
                 }
             }
+
+            if (!srExists)
+            {
+                summary = new SummaryResult() { Language = fileResult.Language };
+                _resultSet.SummaryResults.Add(summary);
+            }
+
         }
     }
 }
