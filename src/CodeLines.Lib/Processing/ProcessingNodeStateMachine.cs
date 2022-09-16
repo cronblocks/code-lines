@@ -1,4 +1,5 @@
-﻿using CodeLines.Lib.Types;
+﻿using CodeLines.Lib.Helpers;
+using CodeLines.Lib.Types;
 
 namespace CodeLines.Lib.Processing
 {
@@ -91,6 +92,78 @@ namespace CodeLines.Lib.Processing
             //
             // Deciding upon line construction
             //
+            switch (_smState)
+            {
+                case SMState.Normal:
+                    
+                    if ((multipleLineCommentStartIndex >= 0 && multipleLineCommentStartIndex > singleLineCommentIndex) ||
+                        singleLineCommentIndex >= 0)
+                    {
+                        // For: [Code][Single-line Comment][Comment]
+                        //      [Code][Single-line Comment][Comment][Multiple-line Comment Start]
+
+                        string codePart = trimmedLine.GetTrimmedPartBefore(SingleLineCommentPattern);
+                        string commentPart = trimmedLine.GetTrimmedPartAfter(SingleLineCommentPattern);
+
+                        if (!string.IsNullOrEmpty(codePart))
+                        {
+                            _smLineHasCode = true;
+                        }
+
+                        if (!string.IsNullOrEmpty(commentPart))
+                        {
+                            _smLineHasCommentText = true;
+                        }
+                    }
+                    else if (multipleLineCommentStartIndex >= 0 && multipleLineCommentEndIndex >= 0 &&
+                             multipleLineCommentEndIndex > multipleLineCommentStartIndex)
+                    {
+                        // For: [Code][Multiple-line Comment Start][Comment][Multiple-line Comment End]
+
+                        string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string commentPart = trimmedLine.GetTrimmedPartBetween(
+                                                            MultipleLineCommentStartPattern, MultipleLineCommentEndPattern);
+
+                        if (!string.IsNullOrEmpty(codePart))
+                        {
+                            _smLineHasCode = true;
+                        }
+
+                        if (!string.IsNullOrEmpty(commentPart))
+                        {
+                            _smLineHasCommentText = true;
+                        }
+                    }
+                    else if (multipleLineCommentStartIndex >= 0)
+                    {
+                        // For: [Code][Multiple-line Comment Start][Comment]
+
+                        string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string commentPart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+
+                        if (!string.IsNullOrEmpty(codePart))
+                        {
+                            _smLineHasCode = true;
+                        }
+
+                        if (!string.IsNullOrEmpty(commentPart))
+                        {
+                            _smLineHasCommentText = true;
+                        }
+                    }
+                    else
+                    {
+                        // For: [Code]
+
+                        _smLineHasCode = true;
+                    }
+
+                    break;
+
+                case SMState.CommentLines:
+                    
+                    break;
+            }
         }
     }
 }
