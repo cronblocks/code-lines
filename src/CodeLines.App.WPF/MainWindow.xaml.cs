@@ -32,7 +32,7 @@ namespace CodeLines.App.WPF
 
         private void OnClearButton_Click(object sender, RoutedEventArgs e)
         {
-
+            outputTextBox.Text = "";
         }
 
         private void OnProcessButton_Click(object sender, RoutedEventArgs e)
