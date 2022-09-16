@@ -14,5 +14,18 @@
 
             return original;
         }
+
+        internal static string GetTrimmedPartAfter(this string original, string sep)
+        {
+            if (!string.IsNullOrEmpty(original))
+            {
+                if (original.Contains(sep))
+                {
+                    return original.Substring(original.IndexOf(sep) + sep.Length).Trim();
+                }
+            }
+
+            return original;
+        }
     }
 }
