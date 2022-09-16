@@ -141,6 +141,8 @@ namespace CodeLines.Lib.Processing
                         string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
                         string commentPart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
 
+                        _smLineHasStartedMultilineComment = true;
+
                         if (!string.IsNullOrEmpty(codePart))
                         {
                             _smLineHasCode = true;
