@@ -34,9 +34,16 @@ namespace CodeLines.Lib.Processing
 
             }
         }
+        }
+        }
 
         private void UpdateLineInfo(string trimmedLine)
         {
+            _smLineHasCode = false;
+            _smLineHasComment = false;
+            _smLineHasStartedMultilineComment = false;
+            _smLineHasEndedMultilineComment = false;
+            
                 int singleLineCommentIndex = -1;
                 int multipleLineCommentStartIndex = -1;
                 int multipleLineCommentEndIndex = -1;
