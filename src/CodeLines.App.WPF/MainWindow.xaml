@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CodeLines.App.WPF"
         mc:Ignorable="d"
+        Name="mainWindow"
         Title="Code Lines" d:DesignWidth="536" d:DesignHeight="400">
     <Grid>
         <Grid.RowDefinitions>
