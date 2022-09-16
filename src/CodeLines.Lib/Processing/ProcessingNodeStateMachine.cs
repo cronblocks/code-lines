@@ -18,7 +18,7 @@ namespace CodeLines.Lib.Processing
         }
 
         private bool _smLineHasCode = false;
-        private bool _smLineHasComment = false;
+        private bool _smLineHasCommentText = false;
         private bool _smLineHasStartedMultilineComment = false;
         private bool _smLineHasEndedMultilineComment = false;
 
@@ -40,7 +40,7 @@ namespace CodeLines.Lib.Processing
         private void UpdateLineInfo(string trimmedLine)
         {
             _smLineHasCode = false;
-            _smLineHasComment = false;
+            _smLineHasCommentText = false;
             _smLineHasStartedMultilineComment = false;
             _smLineHasEndedMultilineComment = false;
             
