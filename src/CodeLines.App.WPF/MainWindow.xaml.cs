@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using CodeLines.Lib.Exceptions;
+using CodeLines.Lib;
 
 namespace CodeLines.App.WPF
 {
@@ -79,6 +81,22 @@ namespace CodeLines.App.WPF
                     clearButton.IsEnabled = false;
                     processButton.IsEnabled = false;
                 });
+
+                try
+                {
+                    LinesCounter counter = new LinesCounter(targetPath, PrintOutputLine);
+
+                    counter.Process();
+                    counter.PrintResult();
+                }
+                catch (NeitherFileNorDirectoryException ex)
+                {
+                    PrintOutputLine($"ERROR! Neither a file nor a directory: \"{ex.Name}\"");
+                }
+                catch (Exception ex)
+                {
+                    PrintOutputLine($"ERROR! \"{ex.Message}\"");
+                }
 
                 RunOnGuiThread(() =>
                 {
