@@ -41,6 +41,8 @@ namespace CodeLines.Lib
                 return;
             }
 
+            MessageLinePrintFunc("    ----------------------------------------------------------------------------------------------------");
+            
             MessageLinePrintFunc($"    | "      +
                     $"{"Language",-20} | "      +
                     $"{"Total Lines",-16} | "   +
@@ -59,6 +61,8 @@ namespace CodeLines.Lib
                     $"{summaryResult.CommentLines,16} | " +
                     $"{summaryResult.CodeLines,16} |");
             }
+
+            MessageLinePrintFunc("    ----------------------------------------------------------------------------------------------------");
         }
 
         public ResultSet GetResult()
