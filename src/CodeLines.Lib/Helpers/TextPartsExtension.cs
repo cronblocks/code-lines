@@ -2,13 +2,26 @@
 {
     internal static class TextPartsExtension
     {
-        internal static string GetTrimmedPartBefore(this string original, string sep)
+        internal static string GetTrimmedPartBefore(this string original, string ending)
         {
             if (!string.IsNullOrEmpty(original))
             {
-                if (original.Contains(sep))
+                if (original.Contains(ending))
                 {
-                    return original.Substring(0, original.IndexOf(sep)).Trim();
+                    return original.Substring(0, original.IndexOf(ending)).Trim();
+                }
+            }
+
+            return original;
+        }
+
+        internal static string GetTrimmedPartAfter(this string original, string starting)
+        {
+            if (!string.IsNullOrEmpty(original))
+            {
+                if (original.Contains(starting))
+                {
+                    return original.Substring(original.IndexOf(starting) + starting.Length).Trim();
                 }
             }
 
