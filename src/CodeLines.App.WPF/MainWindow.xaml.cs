@@ -53,7 +53,10 @@ namespace CodeLines.App.WPF
 
         private void OnProcessButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (string.IsNullOrEmpty(_selectedPath))
+            {
+                MessageBox.Show("Path is not provided", "Invalid Path");
+            }
         }
     }
 }
