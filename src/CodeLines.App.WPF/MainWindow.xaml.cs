@@ -80,6 +80,14 @@ namespace CodeLines.App.WPF
                     processButton.IsEnabled = false;
                 });
                 
+                RunOnGuiThread(() =>
+                {
+                    pathLabel.IsEnabled = true;
+                    pathTextBox.IsEnabled = true;
+                    folderSelectionButton.IsEnabled = true;
+                    clearButton.IsEnabled = true;
+                    processButton.IsEnabled = true;
+                });
             }
         }
 
