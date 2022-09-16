@@ -78,14 +78,75 @@ namespace CodeLines.Lib.Processing
                 singleLineCommentIndex = trimmedLine.IndexOf(SingleLineCommentPattern);
             }
 
-            if (!string.IsNullOrEmpty(MultipleLineCommentStartPattern) && trimmedLine.Contains(MultipleLineCommentStartPattern))
+            if (!string.IsNullOrEmpty(MultipleLineCommentStartPattern) &&
+                !string.IsNullOrEmpty(MultipleLineCommentEndPattern))
             {
-                multipleLineCommentStartIndex = trimmedLine.IndexOf(MultipleLineCommentStartPattern);
-            }
+                // Both patterns must be defined for multiple-line comments
 
-            if (!string.IsNullOrEmpty(MultipleLineCommentEndPattern) && trimmedLine.Contains(MultipleLineCommentEndPattern))
-            {
-                multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
+                if (MultipleLineCommentStartPattern != MultipleLineCommentEndPattern)
+                {
+                    // Both patterns are DIFFERENT
+
+                    if (trimmedLine.Contains(MultipleLineCommentStartPattern))
+                    {
+                        multipleLineCommentStartIndex = trimmedLine.IndexOf(MultipleLineCommentStartPattern);
+                    }
+
+                    if (trimmedLine.Contains(MultipleLineCommentEndPattern))
+                    {
+                        multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
+                    }
+                }
+                else if (MultipleLineCommentStartPattern == MultipleLineCommentEndPattern)
+                {
+                    // Both patterns are SAME
+
+                    switch (_smState)
+                    {
+                        case SMState.Normal:
+                            // Start Pattern should come first
+
+                            if (trimmedLine.Contains(MultipleLineCommentStartPattern))
+                            {
+                                multipleLineCommentStartIndex = trimmedLine.IndexOf(MultipleLineCommentStartPattern);
+                            }
+
+                            if (multipleLineCommentStartIndex >= 0 &&
+                                trimmedLine
+                                .GetTrimmedPartAfter(MultipleLineCommentStartPattern)
+                                .Contains(MultipleLineCommentEndPattern))
+                            {
+                                multipleLineCommentEndIndex =
+                                                        multipleLineCommentStartIndex + MultipleLineCommentStartPattern.Length +
+                                                        trimmedLine
+                                                        .GetTrimmedPartAfter(MultipleLineCommentStartPattern)
+                                                        .IndexOf(MultipleLineCommentEndPattern);
+                            }
+
+                            break;
+                        case SMState.CommentLines:
+                            // End Pattern should come first
+
+                            if (trimmedLine.Contains(MultipleLineCommentEndPattern))
+                            {
+                                multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
+                            }
+
+                            if (multipleLineCommentEndIndex >= 0 &&
+                                trimmedLine
+                                .GetTrimmedPartAfter(MultipleLineCommentEndPattern)
+                                .Contains(MultipleLineCommentStartPattern))
+                            {
+                                multipleLineCommentStartIndex =
+                                                        multipleLineCommentEndIndex + MultipleLineCommentEndPattern.Length +
+                                                        trimmedLine
+                                                        .GetTrimmedPartAfter(MultipleLineCommentEndPattern)
+                                                        .IndexOf(MultipleLineCommentStartPattern);
+                            }
+
+                            break;
+                    }
+                }
             }
 
             //
