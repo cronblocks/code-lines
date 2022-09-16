@@ -14,7 +14,7 @@ namespace CodeLines.Lib.Processing
 
         }
 
-        private void UpdateStateMachine(ref FileResult fr, string trimmedLine)
+        private void UpdateStateMachine(ref FileResult fileResult, string trimmedLine)
         {
 
         }
