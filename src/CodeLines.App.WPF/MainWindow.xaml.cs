@@ -60,12 +60,12 @@ namespace CodeLines.App.WPF
             }
             else
             {
-                Thread thread = new Thread(ProcessPath);
+                Thread thread = new Thread(ProcessThread);
                 thread.Start(_selectedPath);
             }
         }
 
-        private void ProcessPath(object? path)
+        private void ProcessThread(object? path)
         {
             string? targetPath = path as string;
 
