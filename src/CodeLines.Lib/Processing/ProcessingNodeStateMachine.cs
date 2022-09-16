@@ -119,11 +119,12 @@ namespace CodeLines.Lib.Processing
                     {
                         // For: [Code][Multiple-line Comment Start][Comment][Multiple-line Comment End][Code]
 
-                        string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string codePart1 = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string codePart2 = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentEndPattern);
                         string commentPart = trimmedLine.GetTrimmedPartBetween(
                                                             MultipleLineCommentStartPattern, MultipleLineCommentEndPattern);
 
-                        if (!string.IsNullOrEmpty(codePart))
+                        if (!string.IsNullOrEmpty(codePart1) || !string.IsNullOrEmpty(codePart2))
                         {
                             _smLineHasCode = true;
                         }
