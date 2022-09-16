@@ -17,6 +17,11 @@ namespace CodeLines.Lib.Processing
             _smState = SMState.Normal;
         }
 
+        private bool _smLineHasCode = false;
+        private bool _smLineHasComment = false;
+        private bool _smLineHasStartedMultilineComment = false;
+        private bool _smLineHasEndedMultilineComment = false;
+
         private void UpdateStateMachine(ref FileResult fileResult, string trimmedLine)
         {
             if (string.IsNullOrEmpty(trimmedLine))
