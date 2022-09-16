@@ -79,7 +79,7 @@ namespace CodeLines.App.WPF
                     clearButton.IsEnabled = false;
                     processButton.IsEnabled = false;
                 });
-                
+
                 RunOnGuiThread(() =>
                 {
                     pathLabel.IsEnabled = true;
@@ -94,6 +94,14 @@ namespace CodeLines.App.WPF
         private void RunOnGuiThread(Action action)
         {
             mainWindow.Dispatcher.Invoke(action);
+        }
+
+        private void PrintOutputLine(string text)
+        {
+            RunOnGuiThread(() =>
+            {
+                outputTextBox.AppendText($"{text}{Environment.NewLine}");
+            });
         }
     }
 }
