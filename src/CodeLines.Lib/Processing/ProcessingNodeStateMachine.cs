@@ -59,7 +59,7 @@ namespace CodeLines.Lib.Processing
         private void UpdateLineInfo(string trimmedLine)
         {
             //
-            // Initializing state
+            // Initializing flags' state
             //
             _smLineHasCode = false;
             _smLineHasCommentText = false;
