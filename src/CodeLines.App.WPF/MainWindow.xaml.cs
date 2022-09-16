@@ -119,6 +119,7 @@ namespace CodeLines.App.WPF
             RunOnGuiThread(() =>
             {
                 outputTextBox.AppendText($"{text}{Environment.NewLine}");
+                outputTextBox.ScrollToEnd();
             });
         }
     }
