@@ -45,6 +45,6 @@
                  Margin="3,3,3,3" Grid.Row="1"
                  TextWrapping="Wrap"
                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
-                 IsEnabled="False" Focusable="False" IsTabStop="False"/>
+                 IsEnabled="False" Focusable="False" IsTabStop="False" FontFamily="Consolas"/>
     </Grid>
 </Window>
