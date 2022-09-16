@@ -10,7 +10,7 @@ namespace CodeLines.Lib.Processing
             CommentLines
         }
 
-        private State _state;
+        private State _state = State.Normal;
 
         private void ResetStateMachine()
         {
