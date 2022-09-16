@@ -23,9 +23,21 @@
 
             <Label x:Name="pathLabel" Content="Path" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
             <TextBox x:Name="pathTextBox" Grid.Column="1" Margin="3,0,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center"/>
-            <Button x:Name="folderSelectionButton" Content="Select" Grid.Column="2" Margin="3,0,0,0"/>
-            <Button x:Name="clearButton" Content="Clear" Grid.Column="3" Margin="3,0,0,0"/>
-            <Button x:Name="processButton" Content="Process" Grid.Column="4" Background="#FFA5FF8F" Foreground="Black" Margin="3,0,0,0"/>
+            
+            <Button x:Name="folderSelectionButton"
+                    Content="Select"
+                    Grid.Column="2" Margin="3,0,0,0"
+                    Click="OnFolderSelectionButton_Click"/>
+            
+            <Button x:Name="clearButton"
+                    Content="Clear"
+                    Grid.Column="3" Margin="3,0,0,0"
+                    Click="OnClearButton_Click"/>
+            
+            <Button x:Name="processButton"
+                    Content="Process"
+                    Grid.Column="4" Background="#FFA5FF8F" Foreground="Black" Margin="3,0,0,0"
+                    Click="OnProcessButton_Click"/>
         </Grid>
         <TextBox x:Name="outputTextBox" Margin="3,3,3,3" Grid.Row="1" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsEnabled="False" Focusable="False" IsTabStop="False"/>
     </Grid>

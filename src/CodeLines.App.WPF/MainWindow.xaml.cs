@@ -24,5 +24,20 @@ namespace CodeLines.App.WPF
         {
             InitializeComponent();
         }
+
+        private void OnFolderSelectionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnClearButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnProcessButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
