@@ -25,7 +25,7 @@
             <TextBox x:Name="pathTextBox" Grid.Column="1" Margin="3,0,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center"/>
             <Button x:Name="folderSelectionButton" Content="Select" Grid.Column="2" Margin="3,0,0,0"/>
             <Button x:Name="clearButton" Content="Clear" Grid.Column="3" Margin="3,0,0,0"/>
-            <Button x:Name="proceedButton" Content="Proceed" Grid.Column="4" Background="#FFA5FF8F" Foreground="Black" Margin="3,0,0,0"/>
+            <Button x:Name="processButton" Content="Process" Grid.Column="4" Background="#FFA5FF8F" Foreground="Black" Margin="3,0,0,0"/>
         </Grid>
         <TextBox x:Name="outputTextBox" Margin="3,3,3,3" Grid.Row="1" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsEnabled="False" Focusable="False" IsTabStop="False"/>
     </Grid>
