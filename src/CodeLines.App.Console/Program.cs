@@ -5,7 +5,12 @@ Console.WriteLine("Code Lines!");
 
 try
 {
-    LinesCounter counter = new LinesCounter("C:\\Users\\usama\\source\\repos\\ESerial", Console.WriteLine);
+    LinesCounter counter = new LinesCounter(
+        Path.Combine(
+            Environment.CurrentDirectory,
+            $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}" +
+            $"..{Path.DirectorySeparatorChar}.."),
+        Console.WriteLine);
 
     counter.Process();
     counter.PrintResult();
