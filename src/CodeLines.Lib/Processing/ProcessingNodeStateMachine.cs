@@ -25,7 +25,14 @@ namespace CodeLines.Lib.Processing
             }
             else
             {
-
+                switch (_smState)
+                {
+                    case SMState.Normal:
+                        break;
+                    
+                    case SMState.CommentLines:
+                        break;
+                }
             }
         }
     }
