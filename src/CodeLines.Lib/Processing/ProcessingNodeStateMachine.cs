@@ -25,6 +25,13 @@ namespace CodeLines.Lib.Processing
             }
             else
             {
+                UpdateLineInfo(trimmedLine);
+
+            }
+        }
+
+        private void UpdateLineInfo(string trimmedLine)
+        {
                 int singleLineCommentIndex = -1;
                 int multipleLineCommentStartIndex = -1;
                 int multipleLineCommentEndIndex = -1;
@@ -44,16 +51,6 @@ namespace CodeLines.Lib.Processing
                 {
                     multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
                 }
-
-                switch (_smState)
-                {
-                    case SMState.Normal:
-                        break;
-                    
-                    case SMState.CommentLines:
-                        break;
-                }
-            }
         }
     }
 }
