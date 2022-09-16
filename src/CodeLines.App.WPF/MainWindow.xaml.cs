@@ -27,7 +27,7 @@ namespace CodeLines.App.WPF
             InitializeComponent();
         }
 
-        private List<string> _filenames = new List<string>();
+        private string _selectedPath = "";
 
         private void OnFolderSelectionButton_Click(object sender, RoutedEventArgs e)
         {
@@ -41,11 +41,8 @@ namespace CodeLines.App.WPF
 
             if (dialog.ShowDialog() == WinForms.DialogResult.OK)
             {
-                _filenames.Clear();
-
-                _filenames.Add(dialog.SelectedPath);
-
-                pathTextBox.Text = _filenames.FirstOrDefault();
+                _selectedPath = dialog.SelectedPath;
+                pathTextBox.Text = _selectedPath;
             }
         }
 
