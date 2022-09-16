@@ -85,7 +85,7 @@ namespace CodeLines.App.WPF
 
         private void RunOnGuiThread(Action action)
         {
-
+            mainWindow.Dispatcher.Invoke(action);
         }
     }
 }
