@@ -117,7 +117,7 @@ namespace CodeLines.Lib.Processing
                     else if (multipleLineCommentStartIndex >= 0 && multipleLineCommentEndIndex >= 0 &&
                              multipleLineCommentEndIndex > multipleLineCommentStartIndex)
                     {
-                        // For: [Code][Multiple-line Comment Start][Comment][Multiple-line Comment End]
+                        // For: [Code][Multiple-line Comment Start][Comment][Multiple-line Comment End][Code]
 
                         string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
                         string commentPart = trimmedLine.GetTrimmedPartBetween(
