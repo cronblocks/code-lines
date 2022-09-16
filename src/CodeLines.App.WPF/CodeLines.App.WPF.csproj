@@ -7,6 +7,7 @@
     <UseWPF>true</UseWPF>
     <Company>$(Authors)</Company>
     <NeutralLanguage>en</NeutralLanguage>
+    <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
