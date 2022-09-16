@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace CodeLines.App.WPF
 {
@@ -59,13 +60,19 @@ namespace CodeLines.App.WPF
             }
             else
             {
-                ProcessPath(_selectedPath);
+                Thread thread = new Thread(ProcessPath);
+                thread.Start(_selectedPath);
             }
         }
 
-        private void ProcessPath(string path)
+        private void ProcessPath(object? path)
         {
+            string? targetPath = path as string;
 
+            if (!string.IsNullOrEmpty(targetPath))
+            {
+
+            }
         }
     }
 }
