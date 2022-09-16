@@ -139,7 +139,7 @@ namespace CodeLines.Lib.Processing
                         // For: [Code][Multiple-line Comment Start][Comment]
 
                         string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
-                        string commentPart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string commentPart = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentStartPattern);
 
                         _smLineHasStartedMultilineComment = true;
 
