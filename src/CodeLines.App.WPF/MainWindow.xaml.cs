@@ -31,30 +31,19 @@ namespace CodeLines.App.WPF
 
         private void OnFolderSelectionButton_Click(object sender, RoutedEventArgs e)
         {
-            FileDialog dialog = new OpenFileDialog()
+            WinForms.FolderBrowserDialog dialog = new WinForms.FolderBrowserDialog()
             {
-                Multiselect = true,
-                RestoreDirectory = true,
-                Title = "Select file or directory",
-                Filter = "Directory|*.this.directory",
-                FileName = "Select",
-                ValidateNames = false,
-                CheckFileExists = false,
-                CheckPathExists = true
+                AutoUpgradeEnabled = true,
+                Description = "Select file or directory",
+                UseDescriptionForTitle = true,
+                ShowNewFolderButton = false
             };
 
-            dialog.ShowDialog();
-
-            if (dialog.FileNames.Any())
+            if (dialog.ShowDialog() == WinForms.DialogResult.OK)
             {
                 _filenames.Clear();
 
-                foreach (string filename in dialog.FileNames)
-                {
-                    _filenames.Add(filename
-                        .Replace("\\Select.this.directory", "")
-                        .Replace(".this.directory", ""));
-                }
+                _filenames.Add(dialog.SelectedPath);
 
                 pathTextBox.Text = _filenames.FirstOrDefault();
             }
