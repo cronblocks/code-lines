@@ -7,7 +7,7 @@ using System.IO;
 
 namespace CodeLines.Lib.Processing
 {
-    internal class ProcessingNode
+    internal partial class ProcessingNode
     {
         public ProcessingNode(
             Language language,
