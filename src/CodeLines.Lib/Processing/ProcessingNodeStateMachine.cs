@@ -57,11 +57,17 @@ namespace CodeLines.Lib.Processing
 
         private void UpdateLineInfo(string trimmedLine)
         {
+            //
+            // Initializing state
+            //
             _smLineHasCode = false;
             _smLineHasCommentText = false;
             _smLineHasStartedMultilineComment = false;
             _smLineHasEndedMultilineComment = false;
             
+            //
+            // Capturing indices
+            //
             int singleLineCommentIndex = -1;
             int multipleLineCommentStartIndex = -1;
             int multipleLineCommentEndIndex = -1;
@@ -81,6 +87,10 @@ namespace CodeLines.Lib.Processing
             {
                 multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
             }
+
+            //
+            // Deciding upon line construction
+            //
         }
     }
 }
