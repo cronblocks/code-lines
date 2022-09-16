@@ -57,6 +57,15 @@ namespace CodeLines.App.WPF
             {
                 MessageBox.Show("Path is not provided", "Invalid Path");
             }
+            else
+            {
+                ProcessPath(_selectedPath);
+            }
+        }
+
+        private void ProcessPath(string path)
+        {
+
         }
     }
 }
