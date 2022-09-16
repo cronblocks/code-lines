@@ -28,6 +28,7 @@ namespace CodeLines.Lib.Processing
                 int singleLineCommentIndex = -1;
                 int multipleLineCommentStartIndex = -1;
                 int multipleLineCommentEndIndex = -1;
+                int lastIndex = trimmedLine.Length - 1;
 
                 if (!string.IsNullOrEmpty(SingleLineCommentPattern) && trimmedLine.Contains(SingleLineCommentPattern))
                 {
