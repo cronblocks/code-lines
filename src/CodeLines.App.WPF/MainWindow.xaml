@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition MaxWidth="75" MinWidth="65" />
-                <ColumnDefinition MaxWidth="75" MinWidth="65" />
+                <ColumnDefinition MaxWidth="85" MinWidth="75" />
                 <ColumnDefinition MaxWidth="85" MinWidth="75" />
             </Grid.ColumnDefinitions>
 
@@ -30,7 +30,7 @@
                     Click="OnFolderSelectionButton_Click"/>
             
             <Button x:Name="clearButton"
-                    Content="Clear"
+                    Content="Clear Output"
                     Grid.Column="3" Margin="3,0,0,0"
                     Click="OnClearButton_Click"/>
             
