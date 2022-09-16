@@ -71,8 +71,21 @@ namespace CodeLines.App.WPF
 
             if (!string.IsNullOrEmpty(targetPath))
             {
-
+                RunOnGuiThread(() =>
+                {
+                    pathLabel.IsEnabled = false;
+                    pathTextBox.IsEnabled = false;
+                    folderSelectionButton.IsEnabled = false;
+                    clearButton.IsEnabled = false;
+                    processButton.IsEnabled = false;
+                });
+                
             }
+        }
+
+        private void RunOnGuiThread(Action action)
+        {
+
         }
     }
 }
