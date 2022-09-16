@@ -9,6 +9,14 @@ namespace CodeLines.Lib.Processing
 {
     internal partial class ProcessingNode
     {
-        
+        private void ResetStateMachine()
+        {
+
+        }
+
+        private void UpdateStateMachine()
+        {
+
+        }
     }
 }
