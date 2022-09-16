@@ -4,17 +4,17 @@ namespace CodeLines.Lib.Processing
 {
     internal partial class ProcessingNode
     {
-        private enum State
+        private enum SMState
         {
             Normal,
             CommentLines
         }
 
-        private State _state = State.Normal;
+        private SMState _smState = SMState.Normal;
 
         private void ResetStateMachine()
         {
-            _state = State.Normal;
+            _smState = SMState.Normal;
         }
 
         private void UpdateStateMachine(ref FileResult fileResult, string trimmedLine)
