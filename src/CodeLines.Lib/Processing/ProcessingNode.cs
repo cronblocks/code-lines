@@ -85,18 +85,11 @@ namespace CodeLines.Lib.Processing
                 CodeLines = 0
             };
 
+            ResetStateMachine();
+
             foreach (string line in textLinesProvider.NextLine())
             {
-                string trimmedLine = line.Trim();
-
-                if (string.IsNullOrEmpty(trimmedLine))
-                {
-                    fr.BlankLines++;
-                }
-                else
-                {
-
-                }
+                UpdateStateMachine(ref fr, line.Trim());
             }
 
             fr.TotalLines = textLinesProvider.TotalLines;
