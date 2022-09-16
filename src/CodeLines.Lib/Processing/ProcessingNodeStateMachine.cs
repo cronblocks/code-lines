@@ -32,9 +32,27 @@ namespace CodeLines.Lib.Processing
             {
                 UpdateLineInfo(trimmedLine);
 
+                switch (_smState)
+                {
+                    case SMState.Normal:
+                        if (_smLineHasCode)                    { fileResult.CodeLines++;          }
+                        if (_smLineHasCommentText)             { fileResult.CommentLines++;       }
+                        if (_smLineHasStartedMultilineComment) { _smState = SMState.CommentLines; }
+
+                        break;
+                    
+                    case SMState.CommentLines:
+                        if (_smLineHasEndedMultilineComment && !_smLineHasStartedMultilineComment)
+                        {
+                            _smState = SMState.Normal;
+                        }
+
+                        if (_smLineHasCode)        { fileResult.CodeLines++;    }
+                        if (_smLineHasCommentText) { fileResult.CommentLines++; }
+
+                        break;
+                }
             }
-        }
-        }
         }
 
         private void UpdateLineInfo(string trimmedLine)
@@ -44,25 +62,25 @@ namespace CodeLines.Lib.Processing
             _smLineHasStartedMultilineComment = false;
             _smLineHasEndedMultilineComment = false;
             
-                int singleLineCommentIndex = -1;
-                int multipleLineCommentStartIndex = -1;
-                int multipleLineCommentEndIndex = -1;
-                int lastIndex = trimmedLine.Length - 1;
+            int singleLineCommentIndex = -1;
+            int multipleLineCommentStartIndex = -1;
+            int multipleLineCommentEndIndex = -1;
+            int lastIndex = trimmedLine.Length - 1;
 
-                if (!string.IsNullOrEmpty(SingleLineCommentPattern) && trimmedLine.Contains(SingleLineCommentPattern))
-                {
-                    singleLineCommentIndex = trimmedLine.IndexOf(SingleLineCommentPattern);
-                }
+            if (!string.IsNullOrEmpty(SingleLineCommentPattern) && trimmedLine.Contains(SingleLineCommentPattern))
+            {
+                singleLineCommentIndex = trimmedLine.IndexOf(SingleLineCommentPattern);
+            }
 
-                if (!string.IsNullOrEmpty(MultipleLineCommentStartPattern) && trimmedLine.Contains(MultipleLineCommentStartPattern))
-                {
-                    multipleLineCommentStartIndex = trimmedLine.IndexOf(MultipleLineCommentStartPattern);
-                }
+            if (!string.IsNullOrEmpty(MultipleLineCommentStartPattern) && trimmedLine.Contains(MultipleLineCommentStartPattern))
+            {
+                multipleLineCommentStartIndex = trimmedLine.IndexOf(MultipleLineCommentStartPattern);
+            }
 
-                if (!string.IsNullOrEmpty(MultipleLineCommentEndPattern) && trimmedLine.Contains(MultipleLineCommentEndPattern))
-                {
-                    multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
-                }
+            if (!string.IsNullOrEmpty(MultipleLineCommentEndPattern) && trimmedLine.Contains(MultipleLineCommentEndPattern))
+            {
+                multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
+            }
         }
     }
 }
