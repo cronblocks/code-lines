@@ -28,14 +28,13 @@
             return original;
         }
 
-        internal static string GetTrimmedPartAfter(this string original, string sep)
+        internal static string GetTrimmedPartBetween(this string original, string start, string end)
         {
             if (!string.IsNullOrEmpty(original))
             {
-                if (original.Contains(sep))
-                {
-                    return original.Substring(original.IndexOf(sep) + sep.Length).Trim();
-                }
+                return original
+                    .GetTrimmedPartAfter(start)
+                    .GetTrimmedPartBefore(end);
             }
 
             return original;
