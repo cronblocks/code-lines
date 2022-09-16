@@ -163,7 +163,55 @@ namespace CodeLines.Lib.Processing
                     break;
 
                 case SMState.CommentLines:
-                    
+
+                    if (multipleLineCommentStartIndex >= 0 && multipleLineCommentEndIndex >= 0 &&
+                        multipleLineCommentEndIndex < multipleLineCommentStartIndex)
+                    {
+                        // For: [Comment][Multiple-line Comment End][Code][Multiple-line Comment Start][Comment]
+
+                        string codePart = trimmedLine.GetTrimmedPartBetween(MultipleLineCommentEndPattern, MultipleLineCommentStartPattern);
+                        string commentPart1 = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentEndPattern);
+                        string commentPart2 = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentStartPattern);
+
+                        _smLineHasStartedMultilineComment = true;
+                        _smLineHasEndedMultilineComment = true;
+
+                        if (!string.IsNullOrEmpty(codePart))
+                        {
+                            _smLineHasCode = true;
+                        }
+
+                        if (!string.IsNullOrEmpty(commentPart1) || !string.IsNullOrEmpty(commentPart2))
+                        {
+                            _smLineHasCommentText = true;
+                        }
+                    }
+                    else if (multipleLineCommentEndIndex >= 0)
+                    {
+                        // For: [Comment][Multiple-line Comment End][Code]
+
+                        string codePart = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentEndPattern);
+                        string commentPart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentEndPattern);
+
+                        _smLineHasEndedMultilineComment = true;
+
+                        if (!string.IsNullOrEmpty(codePart))
+                        {
+                            _smLineHasCode = true;
+                        }
+
+                        if (!string.IsNullOrEmpty(commentPart))
+                        {
+                            _smLineHasCommentText = true;
+                        }
+                    }
+                    else
+                    {
+                        // For: [Comment]
+
+                        _smLineHasCommentText = true;
+                    }
+
                     break;
             }
         }
