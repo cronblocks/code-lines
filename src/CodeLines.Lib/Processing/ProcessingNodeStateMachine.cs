@@ -41,7 +41,7 @@ namespace CodeLines.Lib.Processing
                         if (_smLineHasStartedMultilineComment) { _smState = SMState.CommentLines; }
 
                         break;
-                    
+
                     case SMState.CommentLines:
                         if (_smLineHasEndedMultilineComment && !_smLineHasStartedMultilineComment)
                         {
@@ -65,14 +65,13 @@ namespace CodeLines.Lib.Processing
             _smLineHasCommentText = false;
             _smLineHasStartedMultilineComment = false;
             _smLineHasEndedMultilineComment = false;
-            
+
             //
             // Capturing indices
             //
             int singleLineCommentIndex = -1;
             int multipleLineCommentStartIndex = -1;
             int multipleLineCommentEndIndex = -1;
-            int lastIndex = trimmedLine.Length - 1;
 
             if (!string.IsNullOrEmpty(SingleLineCommentPattern) && trimmedLine.Contains(SingleLineCommentPattern))
             {
@@ -95,7 +94,7 @@ namespace CodeLines.Lib.Processing
             switch (_smState)
             {
                 case SMState.Normal:
-                    
+
                     if ((multipleLineCommentStartIndex >= 0 && multipleLineCommentStartIndex > singleLineCommentIndex) ||
                         singleLineCommentIndex >= 0)
                     {
