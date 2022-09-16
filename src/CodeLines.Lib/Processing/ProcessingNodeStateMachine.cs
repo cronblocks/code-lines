@@ -162,7 +162,7 @@ namespace CodeLines.Lib.Processing
                         // For: [Code][Single-line Comment][Comment]
                         //      [Code][Single-line Comment][Comment][Multiple-line Comment Start]
 
-                        string codePart = trimmedLine.GetTrimmedPartBefore(SingleLineCommentPattern);
+                        string codePart = trimmedLine.Substring(0, singleLineCommentIndex).Trim();
                         string commentPart = trimmedLine.GetTrimmedPartAfter(SingleLineCommentPattern);
 
                         if (!string.IsNullOrEmpty(codePart))
@@ -180,7 +180,7 @@ namespace CodeLines.Lib.Processing
                     {
                         // For: [Code][Multiple-line Comment Start][Comment][Multiple-line Comment End][Code]
 
-                        string codePart1 = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string codePart1 = trimmedLine.Substring(0, multipleLineCommentStartIndex).Trim();
                         string codePart2 = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentEndPattern);
                         string commentPart = trimmedLine.GetTrimmedPartBetween(
                                                             MultipleLineCommentStartPattern, MultipleLineCommentEndPattern);
@@ -199,7 +199,7 @@ namespace CodeLines.Lib.Processing
                     {
                         // For: [Code][Multiple-line Comment Start][Comment]
 
-                        string codePart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentStartPattern);
+                        string codePart = trimmedLine.Substring(0, multipleLineCommentStartIndex).Trim();
                         string commentPart = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentStartPattern);
 
                         _smLineHasStartedMultilineComment = true;
@@ -231,7 +231,7 @@ namespace CodeLines.Lib.Processing
                         // For: [Comment][Multiple-line Comment End][Code][Multiple-line Comment Start][Comment]
 
                         string codePart = trimmedLine.GetTrimmedPartBetween(MultipleLineCommentEndPattern, MultipleLineCommentStartPattern);
-                        string commentPart1 = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentEndPattern);
+                        string commentPart1 = trimmedLine.Substring(0, multipleLineCommentEndIndex).Trim();
                         string commentPart2 = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentStartPattern);
 
                         _smLineHasStartedMultilineComment = true;
@@ -252,7 +252,7 @@ namespace CodeLines.Lib.Processing
                         // For: [Comment][Multiple-line Comment End][Code]
 
                         string codePart = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentEndPattern);
-                        string commentPart = trimmedLine.GetTrimmedPartBefore(MultipleLineCommentEndPattern);
+                        string commentPart = trimmedLine.Substring(0, multipleLineCommentEndIndex).Trim();
 
                         _smLineHasEndedMultilineComment = true;
 
