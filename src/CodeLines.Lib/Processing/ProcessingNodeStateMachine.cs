@@ -16,7 +16,14 @@ namespace CodeLines.Lib.Processing
 
         private void UpdateStateMachine(ref FileResult fileResult, string trimmedLine)
         {
+            if (string.IsNullOrEmpty(trimmedLine))
+            {
+                fileResult.BlankLines++;
+            }
+            else
+            {
 
+            }
         }
     }
 }
