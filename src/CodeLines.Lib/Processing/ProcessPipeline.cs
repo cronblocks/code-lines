@@ -97,6 +97,16 @@ namespace CodeLines.Lib.Processing
                         CodeLines = fileResult.CodeLines
                     });
             }
+
+            _resultSet.SummaryResults.Sort(
+                (sr1, sr2) => {
+                    if (sr1.Language < sr2.Language)
+                        return -1;
+                    else if (sr1.Language > sr2.Language)
+                        return 1;
+                    else
+                        return 0;
+                });
         }
     }
 }
