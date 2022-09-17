@@ -28,6 +28,8 @@ namespace CodeLines.Lib.Processing
                     new ProcessingNode(Language.Ada,             "ada,adb,ads",   @"--",    @"",      @"",      _logger),
                     new ProcessingNode(Language.CSS,             "css",           @"",      @"/*",    @"*/",    _logger),
                     new ProcessingNode(Language.Go,              "go",            @"//",    @"/*",    @"*/",    _logger),
+                    new ProcessingNode(Language.JavaScript,      "js",            @"//",    @"/*",    @"*/",    _logger),
+                    new ProcessingNode(Language.JSON,            "json",          @"",      @"",      @"",      _logger),
                 });
         }
 
