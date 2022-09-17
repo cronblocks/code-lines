@@ -183,8 +183,9 @@ namespace CodeLines.Lib.Processing
 
                         string codePart1 = trimmedLine.Substring(0, multipleLineCommentStartIndex).Trim();
                         string codePart2 = trimmedLine.Substring(multipleLineCommentEndIndex + MultipleLineCommentEndPattern.Length).Trim();
-                        string commentPart = trimmedLine.GetTrimmedPartBetween(
-                                                            MultipleLineCommentStartPattern, MultipleLineCommentEndPattern);
+                        string commentPart = trimmedLine.Substring(
+                            multipleLineCommentStartIndex + MultipleLineCommentStartPattern.Length,
+                            multipleLineCommentEndIndex - (multipleLineCommentStartIndex + MultipleLineCommentStartPattern.Length)).Trim();
 
                         if (!string.IsNullOrEmpty(codePart1) || !string.IsNullOrEmpty(codePart2))
                         {
@@ -231,7 +232,9 @@ namespace CodeLines.Lib.Processing
                     {
                         // For: [Comment][Multiple-line Comment End][Code][Multiple-line Comment Start][Comment]
 
-                        string codePart = trimmedLine.GetTrimmedPartBetween(MultipleLineCommentEndPattern, MultipleLineCommentStartPattern);
+                        string codePart = trimmedLine.Substring(
+                            multipleLineCommentEndIndex + MultipleLineCommentEndPattern.Length,
+                            multipleLineCommentStartIndex - (multipleLineCommentEndIndex + MultipleLineCommentEndPattern.Length)).Trim();
                         string commentPart1 = trimmedLine.Substring(0, multipleLineCommentEndIndex).Trim();
                         string commentPart2 = trimmedLine.Substring(multipleLineCommentStartIndex + MultipleLineCommentStartPattern.Length).Trim();
 
