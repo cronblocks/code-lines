@@ -24,6 +24,7 @@ namespace CodeLines.Lib.Processing
                     new ProcessingNode(Language.Pascal,          "pp,pas",        @"//",    @"{",     @"}",     _logger),
                     new ProcessingNode(Language.PHP,             "php",           @"//",    @"/*",    @"*/",    _logger),
                     new ProcessingNode(Language.Python,          "py",            @"#",     @"'''",   @"'''",   _logger),
+                    new ProcessingNode(Language.ShellScript,     "sh,csh,bash",   @"#",     @"",      @"",      _logger),
                     new ProcessingNode(Language.PlainText,       "txt",           @"",      @"",      @"",      _logger),
                     new ProcessingNode(Language.XAML,            "xaml",          @"",      @"<!--",  @"-->",   _logger),
                     new ProcessingNode(Language.XML,             "xml",           @"",      @"<!--",  @"-->",   _logger),
