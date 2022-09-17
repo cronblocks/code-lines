@@ -26,6 +26,7 @@ namespace CodeLines.Lib.Processing
                     new ProcessingNode(Language.XAML,            "xaml",          @"",      @"<!--",  @"-->",   _logger),
                     new ProcessingNode(Language.XML,             "xml",           @"",      @"<!--",  @"-->",   _logger),
                     new ProcessingNode(Language.Ada,             "ada,adb,ads",   @"--",    @"",      @"",      _logger),
+                    new ProcessingNode(Language.CSS,             "css",           @"",      @"/*",    @"*/",    _logger),
                 });
         }
 
