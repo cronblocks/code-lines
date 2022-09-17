@@ -30,6 +30,7 @@ namespace CodeLines.Lib.Processing
                     new ProcessingNode(Language.Go,              "go",            @"//",    @"/*",    @"*/",    _logger),
                     new ProcessingNode(Language.JavaScript,      "js",            @"//",    @"/*",    @"*/",    _logger),
                     new ProcessingNode(Language.JSON,            "json",          @"",      @"",      @"",      _logger),
+                    new ProcessingNode(Language.ObjectiveC,        "m,mm",        @"",      @"/*",    @"*/",    _logger),
                 });
         }
 
