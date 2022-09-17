@@ -156,7 +156,8 @@ namespace CodeLines.Lib.Processing
             {
                 case SMState.Normal:
 
-                    if ((multipleLineCommentStartIndex >= 0 && multipleLineCommentStartIndex > singleLineCommentIndex) ||
+                    if ( (singleLineCommentIndex >= 0 && multipleLineCommentStartIndex >= 0 &&
+                          multipleLineCommentStartIndex > singleLineCommentIndex) ||
                         singleLineCommentIndex >= 0)
                     {
                         // For: [Code][Single-line Comment][Comment]
