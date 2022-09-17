@@ -8,6 +8,7 @@ namespace CodeLines.Lib.Helpers
         {
             switch (language)
             {
+                case Language.ArduinoSketch:   return "Arduino Sketch";
                 case Language.CPlusPlus:       return "C++";
                 case Language.CSharp:          return "C#";
                 case Language.JavaScript:      return "Java Script";
