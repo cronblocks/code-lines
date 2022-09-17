@@ -54,12 +54,12 @@ namespace CodeLines.Lib
 
             foreach (SummaryResult summaryResult in rs.SummaryResults)
             {
-                MessageLinePrintFunc($"    | "            +
+                MessageLinePrintFunc($"    | "               +
                     $"{summaryResult.Language.StringName(),-20} | "   +
-                    $"{summaryResult.TotalLines,16} | "   +
-                    $"{summaryResult.BlankLines,16} | "   +
-                    $"{summaryResult.CommentLines,16} | " +
-                    $"{summaryResult.CodeLines,16} |");
+                    $"{summaryResult.TotalLines,16:N0} | "   +
+                    $"{summaryResult.BlankLines,16:N0} | "   +
+                    $"{summaryResult.CommentLines,16:N0} | " +
+                    $"{summaryResult.CodeLines,16:N0} |");
             }
 
             MessageLinePrintFunc("    ----------------------------------------------------------------------------------------------------");
