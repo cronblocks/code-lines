@@ -14,6 +14,7 @@ namespace CodeLines.Lib.Processing
             _processingNodes.Add(new ProcessingNode(Language.C,         "c,h",       @"//", @"/*",  @"*/",  _logger));
             _processingNodes.Add(new ProcessingNode(Language.CPlusPlus, "cpp,h,hpp", @"//", @"/*",  @"*/",  _logger));
             _processingNodes.Add(new ProcessingNode(Language.CSharp,    "cs",        @"//", @"/*",  @"*/",  _logger));
+            _processingNodes.Add(new ProcessingNode(Language.Java,      "java",      @"//", @"/*",  @"*/",  _logger));
             _processingNodes.Add(new ProcessingNode(Language.Python,    "py",        @"#",  @"'''", @"'''", _logger));
         }
 
