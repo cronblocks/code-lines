@@ -17,6 +17,7 @@ namespace CodeLines.Lib.Processing
             _processingNodes.Add(new ProcessingNode(Language.CSharp,          "cs",        @"//",    @"/*",    @"*/",    _logger));
             _processingNodes.Add(new ProcessingNode(Language.Java,            "java",      @"//",    @"/*",    @"*/",    _logger));
             _processingNodes.Add(new ProcessingNode(Language.Python,          "py",        @"#",     @"'''",   @"'''",   _logger));
+            _processingNodes.Add(new ProcessingNode(Language.PlainText,       "txt",       @"",      @"",      @"",      _logger));
             _processingNodes.Add(new ProcessingNode(Language.XAML,            "xaml",      @"",      @"<!--",  @"-->",   _logger));
             _processingNodes.Add(new ProcessingNode(Language.XML,             "xml",       @"",      @"<!--",  @"-->",   _logger));
         }
