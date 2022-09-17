@@ -96,6 +96,40 @@ namespace CodeLines.Lib.Processing
                     {
                         multipleLineCommentEndIndex = trimmedLine.IndexOf(MultipleLineCommentEndPattern);
                     }
+
+                    if (multipleLineCommentStartIndex >= 0 && multipleLineCommentEndIndex >= 0)
+                    {
+                        // Avoiding patterns overlapping
+
+                        if (multipleLineCommentStartIndex < multipleLineCommentEndIndex &&
+                            multipleLineCommentStartIndex + MultipleLineCommentStartPattern.Length > multipleLineCommentEndIndex)
+                        {
+                            // Ending pattern again
+
+                            multipleLineCommentEndIndex = -1;
+
+                            string nextPart = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentStartPattern);
+
+                            if (nextPart.Contains(MultipleLineCommentEndPattern))
+                            {
+                                multipleLineCommentEndIndex = nextPart.IndexOf(MultipleLineCommentEndPattern);
+                            }
+                        }
+                        else if (multipleLineCommentEndIndex < multipleLineCommentStartIndex  &&
+                            multipleLineCommentEndIndex + MultipleLineCommentEndPattern.Length > multipleLineCommentStartIndex)
+                        {
+                            // Starting pattern again
+
+                            multipleLineCommentStartIndex = -1;
+
+                            string nextPart = trimmedLine.GetTrimmedPartAfter(MultipleLineCommentEndPattern);
+
+                            if (nextPart.Contains(MultipleLineCommentStartPattern))
+                            {
+                                multipleLineCommentStartIndex = nextPart.IndexOf(MultipleLineCommentStartPattern);
+                            }
+                        }
+                    }
                 }
                 else if (MultipleLineCommentStartPattern == MultipleLineCommentEndPattern)
                 {
