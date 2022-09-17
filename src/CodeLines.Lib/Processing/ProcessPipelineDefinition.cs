@@ -27,6 +27,7 @@ namespace CodeLines.Lib.Processing
                     new ProcessingNode(Language.XML,             "xml",           @"",      @"<!--",  @"-->",   _logger),
                     new ProcessingNode(Language.Ada,             "ada,adb,ads",   @"--",    @"",      @"",      _logger),
                     new ProcessingNode(Language.CSS,             "css",           @"",      @"/*",    @"*/",    _logger),
+                    new ProcessingNode(Language.Go,              "go",            @"//",    @"/*",    @"*/",    _logger),
                 });
         }
 
