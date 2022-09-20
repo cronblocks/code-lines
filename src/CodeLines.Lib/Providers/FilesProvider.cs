@@ -24,6 +24,13 @@ namespace CodeLines.Lib.Providers
             {
                 throw new NeitherFileNorDirectoryException(dirname);
             }
+
+            if (!string.IsNullOrEmpty(skipped_dir_or_filenames))
+            {
+                SkippedNames = new List<string>(
+                    skipped_dir_or_filenames.Split(
+                        new char[] { ',', ';', '|' }));
+            }
         }
 
         public IEnumerable<string> NextFilename()
