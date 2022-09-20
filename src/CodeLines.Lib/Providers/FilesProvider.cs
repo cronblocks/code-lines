@@ -29,7 +29,7 @@ namespace CodeLines.Lib.Providers
             {
                 SkippedNames = new List<string>(
                     skipped_dir_or_filenames.Split(
-                        new char[] { ',', ';', '|' }));
+                        new char[] { ',', ';', '|' }, System.StringSplitOptions.RemoveEmptyEntries));
             }
         }
 
