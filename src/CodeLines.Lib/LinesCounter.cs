@@ -22,7 +22,7 @@ namespace CodeLines.Lib
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
-            _pipeline = new ProcessPipeline(dir_or_filename, _logger);
+            _pipeline = new ProcessPipeline(dir_or_filename, _logger, skipped_dir_or_filename);
         }
 
         public void Process()
