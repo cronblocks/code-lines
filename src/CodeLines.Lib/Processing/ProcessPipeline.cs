@@ -14,6 +14,7 @@ namespace CodeLines.Lib.Processing
         public event Action ProcessingStarted;
         public event Action ProcessingFinished;
         public event Action<string> FileProcessingStarted;
+        public event Action<string, FileResult> FileProcessingFinished;
         public event Action<string> FileProcessingSkipped;
 
         public ProcessPipeline(string dir_or_filename, Logger logger)
