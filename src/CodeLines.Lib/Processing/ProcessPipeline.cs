@@ -48,6 +48,8 @@ namespace CodeLines.Lib.Processing
                 {
                     _logger.Log($"Processing {filename}", LogLevel.Info);
 
+                    FileProcessingStarted?.Invoke(filename);
+
                     TextLinesProvider textLinesProvider;
 
                     try
