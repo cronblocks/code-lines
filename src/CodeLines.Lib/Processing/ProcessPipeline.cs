@@ -11,6 +11,11 @@ namespace CodeLines.Lib.Processing
         private Logger _logger;
         private ResultSet _resultSet;
 
+        public event Action ProcessingStarted;
+        public event Action ProcessingFinished;
+        public event Action<string> FileProcessingStarted;
+        public event Action<string> FileProcessingSkipped;
+
         public ProcessPipeline(string dir_or_filename, Logger logger)
         {
             DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
