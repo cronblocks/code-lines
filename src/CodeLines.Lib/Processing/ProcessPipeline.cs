@@ -37,6 +37,8 @@ namespace CodeLines.Lib.Processing
 
         internal void Process()
         {
+            ProcessingStarted?.Invoke();
+            
             foreach (string filename in _filesProvider.NextFilename())
             {
                 ProcessingNode node = GetProcessingNode(filename);
@@ -67,6 +69,8 @@ namespace CodeLines.Lib.Processing
                     _logger.Log($"Skipping {filename}", LogLevel.Info);
                 }
             }
+
+            ProcessingFinished?.Invoke();
         }
 
         private void UpdateResultSet(FileResult fileResult)
