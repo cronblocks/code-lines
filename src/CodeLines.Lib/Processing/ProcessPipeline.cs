@@ -60,7 +60,10 @@ namespace CodeLines.Lib.Processing
                     catch (Exception ex)
                     {
                         textLinesProvider = null;
+
                         _logger.Log($"ERROR! {ex.Message}", LogLevel.Error);
+
+                        FileProcessingError?.Invoke(filename, ex.Message);
                     }
 
                     if (textLinesProvider != null)
