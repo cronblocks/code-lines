@@ -12,7 +12,7 @@ namespace CodeLines.Lib.Helpers
                 case Language.CPlusPlus:       return "C++";
                 case Language.CSharp:          return "C#";
                 case Language.GitIgnore:       return "Git Ignore";
-                case Language.JavaScript:      return "Java Script";
+                case Language.JavaScript:      return "Java-Script";
                 case Language.ObjectiveC:      return "Objective-C";
                 case Language.PlainText:       return "Plain Text";
                 case Language.ShellScript:     return "Shell-Script";
