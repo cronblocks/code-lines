@@ -8,7 +8,7 @@ namespace CodeLines.Lib.Providers
     {
         private string _next;
 
-        public FilesProvider(string dirname)
+        public FilesProvider(string dirname, string skipped_dir_or_filenames = "")
         {
             Name = dirname;
 

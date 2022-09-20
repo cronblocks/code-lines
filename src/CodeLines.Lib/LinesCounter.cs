@@ -14,7 +14,7 @@ namespace CodeLines.Lib
             string dir_or_filename,
             Action<string> messageLinePrintFunc,
             LogLevel logLevel = LogLevel.Info,
-            string skipped_dir_or_filename = "")
+            string skipped_dir_or_filenames = "")
         {
             DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
@@ -22,7 +22,7 @@ namespace CodeLines.Lib
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
-            _pipeline = new ProcessPipeline(dir_or_filename, _logger, skipped_dir_or_filename);
+            _pipeline = new ProcessPipeline(dir_or_filename, _logger, skipped_dir_or_filenames);
         }
 
         public void Process()
