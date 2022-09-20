@@ -21,6 +21,7 @@ namespace CodeLines.Lib.Processing
         public ProcessPipeline(string dir_or_filename, Logger logger, string skipped_dir_or_filename = "")
         {
             DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
+            SkippedDirsOrFilenames = skipped_dir_or_filename ?? throw new ArgumentNullException(nameof(skipped_dir_or_filename));
 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
@@ -31,6 +32,7 @@ namespace CodeLines.Lib.Processing
         }
 
         public string DirOrFilename { get; }
+        public string SkippedDirsOrFilenames { get; }
 
         internal ResultSet GetResult()
         {
