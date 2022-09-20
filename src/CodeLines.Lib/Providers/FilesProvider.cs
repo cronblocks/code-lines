@@ -1,4 +1,5 @@
 ﻿using CodeLines.Lib.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -46,9 +47,17 @@ namespace CodeLines.Lib.Providers
             {
                 foreach (string filename in Directory.EnumerateFiles(Name, "*", SearchOption.AllDirectories))
                 {
-                    yield return filename;
+                    if (!IsSkippable(filename))
+                    {
+                        yield return filename;
+                    }
                 }
             }
+        }
+
+        private bool IsSkippable(string filename)
+        {
+            return false;
         }
 
         public string Name { get; }
