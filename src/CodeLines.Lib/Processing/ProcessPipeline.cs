@@ -68,7 +68,11 @@ namespace CodeLines.Lib.Processing
 
                     if (textLinesProvider != null)
                     {
-                        UpdateResultSet(node.ProcessFile(filename, textLinesProvider));
+                        FileResult fr = node.ProcessFile(filename, textLinesProvider);
+
+                        UpdateResultSet(fr);
+
+                        FileProcessingFinished?.Invoke(filename, fr);
                     }
                 }
                 else
