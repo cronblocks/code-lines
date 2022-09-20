@@ -45,6 +45,7 @@ namespace CodeLines.Lib.Providers
         }
 
         public string Name { get; }
+        public List<string> SkippedNames { get; }
 
         public bool IsNameDirectory { get; }
         public bool IsNameFile { get; }
