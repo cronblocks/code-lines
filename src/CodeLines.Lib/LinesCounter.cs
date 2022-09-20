@@ -13,7 +13,8 @@ namespace CodeLines.Lib
         public LinesCounter(
             string dir_or_filename,
             Action<string> messageLinePrintFunc,
-            LogLevel logLevel = LogLevel.Info)
+            LogLevel logLevel = LogLevel.Info,
+            string skipped_dir_or_filename = "")
         {
             DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
