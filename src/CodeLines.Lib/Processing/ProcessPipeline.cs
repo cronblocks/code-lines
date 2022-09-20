@@ -78,6 +78,8 @@ namespace CodeLines.Lib.Processing
                 else
                 {
                     _logger.Log($"Skipping {filename}", LogLevel.Info);
+
+                    FileProcessingSkipped?.Invoke(filename);
                 }
             }
 
