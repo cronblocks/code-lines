@@ -57,6 +57,21 @@ namespace CodeLines.Lib.Providers
 
         private bool IsSkippable(string filename)
         {
+            if (!string.IsNullOrEmpty(filename) && SkippedNames != null)
+            {
+                foreach (string namePart in filename.Split(
+                    new char[] { Path.DirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    foreach (string skippableName in SkippedNames)
+                    {
+                        if (namePart.Equals(skippableName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
             return false;
         }
 
