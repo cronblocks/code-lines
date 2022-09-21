@@ -10,7 +10,8 @@ try
             Environment.CurrentDirectory,
             $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}" +
             $"..{Path.DirectorySeparatorChar}.."),
-        Console.WriteLine);
+        Console.WriteLine,
+        skipped_dir_or_filenames: "");
 
     counter.Process();
     counter.PrintResult();

@@ -84,7 +84,9 @@ namespace CodeLines.App.WPF
 
                 try
                 {
-                    LinesCounter counter = new LinesCounter(targetPath, PrintOutputLine);
+                    LinesCounter counter =
+                        new LinesCounter(targetPath, PrintOutputLine,
+                                         skipped_dir_or_filenames: "");
 
                     counter.Process();
                     counter.PrintResult();
