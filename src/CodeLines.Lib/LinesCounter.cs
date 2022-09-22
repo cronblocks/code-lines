@@ -11,18 +11,18 @@ namespace CodeLines.Lib
         private Logger _logger;
 
         public LinesCounter(
-            string dir_or_filename,
+            string dirOrFilename,
             Action<string> messageLinePrintFunc,
             LogLevel logLevel = LogLevel.Info,
             string skipped_dir_or_filenames = "")
         {
-            DirOrFilename = dir_or_filename ?? throw new ArgumentNullException(nameof(dir_or_filename));
+            DirOrFilename = dirOrFilename ?? throw new ArgumentNullException(nameof(dirOrFilename));
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
             LogLevel = logLevel;
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
-            _pipeline = new ProcessPipeline(dir_or_filename, _logger, skipped_dir_or_filenames);
+            _pipeline = new ProcessPipeline(dirOrFilename, _logger, skipped_dir_or_filenames);
         }
 
         public void Process()
