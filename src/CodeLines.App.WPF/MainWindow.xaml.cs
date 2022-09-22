@@ -86,7 +86,7 @@ namespace CodeLines.App.WPF
                 {
                     LinesCounter counter =
                         new LinesCounter(targetPath, PrintOutputLine,
-                                         skipped_dir_or_filenames: ".git,.svn,bin,obj");
+                                         skippedDirOrFilenames: ".git,.svn,bin,obj");
 
                     counter.Process();
                     counter.PrintResult();
