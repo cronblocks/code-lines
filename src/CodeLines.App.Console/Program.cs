@@ -11,7 +11,7 @@ try
             $"..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}" +
             $"..{Path.DirectorySeparatorChar}.."),
         Console.WriteLine,
-        skippedDirOrFilenames: ".git,.svn,bin,obj");
+        skippedDirOrFilenames: ".git,.svn");
 
     counter.Process();
     counter.PrintResult();
