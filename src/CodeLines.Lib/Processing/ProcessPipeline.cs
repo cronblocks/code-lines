@@ -18,10 +18,10 @@ namespace CodeLines.Lib.Processing
         public event Action<string, string> FileProcessingError;
         public event Action<string> FileProcessingSkipped;
 
-        public ProcessPipeline(string dirOrFilename, Logger logger, string skippedDirOrFilenames = "")
+        public ProcessPipeline(string dirOrFilename, Logger logger, string skippedDirsOrFilenames = "")
         {
             DirOrFilename = dirOrFilename ?? throw new ArgumentNullException(nameof(dirOrFilename));
-            SkippedDirsOrFilenames = skippedDirOrFilenames;
+            SkippedDirsOrFilenames = skippedDirsOrFilenames;
 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
