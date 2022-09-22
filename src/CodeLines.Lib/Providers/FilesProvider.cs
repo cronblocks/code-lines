@@ -9,7 +9,7 @@ namespace CodeLines.Lib.Providers
     {
         private string _next;
 
-        public FilesProvider(string dirname, string skipped_dir_or_filenames = "")
+        public FilesProvider(string dirname, string skippedDirsOrFilenames = "")
         {
             Name = dirname;
 
@@ -26,10 +26,10 @@ namespace CodeLines.Lib.Providers
                 throw new NeitherFileNorDirectoryException(dirname);
             }
 
-            if (!string.IsNullOrEmpty(skipped_dir_or_filenames))
+            if (!string.IsNullOrEmpty(skippedDirsOrFilenames))
             {
                 SkippedNames = new List<string>(
-                    skipped_dir_or_filenames.Split(
+                    skippedDirsOrFilenames.Split(
                         new char[] { ',', ';', '|' }, System.StringSplitOptions.RemoveEmptyEntries));
             }
         }
