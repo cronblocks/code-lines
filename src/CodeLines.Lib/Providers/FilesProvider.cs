@@ -9,21 +9,21 @@ namespace CodeLines.Lib.Providers
     {
         private string _next;
 
-        public FilesProvider(string dirname, string skippedDirsOrFilenames = "")
+        public FilesProvider(string dirOrFilename, string skippedDirsOrFilenames = "")
         {
-            Name = dirname;
+            Name = dirOrFilename;
 
-            IsNameDirectory = IsDirectory(dirname);
-            IsNameFile = IsFile(dirname);
+            IsNameDirectory = IsDirectory(dirOrFilename);
+            IsNameFile = IsFile(dirOrFilename);
 
             if (IsNameFile)
             {
-                _next = dirname;
+                _next = dirOrFilename;
             }
 
             if (!IsNameDirectory && !IsNameFile)
             {
-                throw new NeitherFileNorDirectoryException(dirname);
+                throw new NeitherFileNorDirectoryException(dirOrFilename);
             }
 
             if (!string.IsNullOrEmpty(skippedDirsOrFilenames))
