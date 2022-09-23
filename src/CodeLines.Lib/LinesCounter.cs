@@ -24,7 +24,7 @@ namespace CodeLines.Lib
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
-            _pipeline = new ProcessPipeline(dirOrFilename, _logger, skippedDirOrFilenames);
+            _pipeline = new ProcessPipeline(DirOrFilename, _logger, skippedDirOrFilenames);
         }
 
         private string CleanedPath(string dirOrFilename)
