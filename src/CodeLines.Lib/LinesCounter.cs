@@ -81,6 +81,8 @@ namespace CodeLines.Lib
                         }
                     }
                 }
+
+                return Path.Combine(pathParts.ToArray());
             }
 
             return dirOrFilename;
