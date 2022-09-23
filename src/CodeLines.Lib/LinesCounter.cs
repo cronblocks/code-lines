@@ -35,57 +35,34 @@ namespace CodeLines.Lib
                     dirOrFilename.Split(new char[] { '/', '\\' },
                     StringSplitOptions.RemoveEmptyEntries));
 
-                List<int> indicesToBeRemoved = new List<int>();
-                int itbr = -1;
-                int currIndex = 0;
-
-                foreach (string pathPart in pathParts)
-                {
-                    if (pathPart != "..")
-                    {
-                        itbr = -1;
-                    }
-                    else
-                    {
-                        indicesToBeRemoved.Add(currIndex);
-
-                        if (itbr == -1)
-                        {
-                            itbr = currIndex - 1;
-                        }
-                        else
-                        {
-                            itbr--;
-                        }
-
-                        if (itbr >= 0)
-                        {
-                            indicesToBeRemoved.Add(itbr);
-                        }
-                    }
-
-                    currIndex++;
-                }
-
-                for (int i = 0; i < indicesToBeRemoved.Count; i++)
-                {
-                    int indexToBeRemoved = indicesToBeRemoved[i];
-
-                    pathParts.RemoveAt(indexToBeRemoved);
-
-                    for (int internalIndex = i + 1; internalIndex < indicesToBeRemoved.Count; internalIndex++)
-                    {
-                        if (indicesToBeRemoved[internalIndex] > indexToBeRemoved)
-                        {
-                            indicesToBeRemoved[internalIndex] = indicesToBeRemoved[internalIndex] - 1;
-                        }
-                    }
-                }
+                while (RemoveDirUpperLevelPair(ref pathParts)) ;
 
                 return Path.Combine(pathParts.ToArray());
             }
 
             return dirOrFilename;
+        }
+
+        private bool RemoveDirUpperLevelPair(ref List<string> pathParts)
+        {
+            for (int ppi = 0; ppi < pathParts.Count; ppi++)
+            {
+                if (pathParts[ppi] == "..")
+                {
+                    for (int i = ppi - 1; i >= 0; i--)
+                    {
+                        if (pathParts[i] != ".." && !pathParts[i].Contains(":"))
+                        {
+                            pathParts.RemoveAt(i);
+                            pathParts.RemoveAt(ppi - 1);
+
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
 
         public void Process()
