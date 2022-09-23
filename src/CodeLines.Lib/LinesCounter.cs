@@ -16,13 +16,18 @@ namespace CodeLines.Lib
             LogLevel logLevel = LogLevel.Info,
             string skippedDirOrFilenames = "")
         {
-            DirOrFilename = dirOrFilename ?? throw new ArgumentNullException(nameof(dirOrFilename));
+            DirOrFilename = CorrectedPath(dirOrFilename) ?? throw new ArgumentNullException(nameof(dirOrFilename));
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
             LogLevel = logLevel;
 
             _logger = new Logger(logLevel, messageLinePrintFunc);
 
             _pipeline = new ProcessPipeline(dirOrFilename, _logger, skippedDirOrFilenames);
+        }
+
+        private string CorrectedPath(string dirOrFilename)
+        {
+            throw new NotImplementedException();
         }
 
         public void Process()
