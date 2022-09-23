@@ -2,6 +2,8 @@
 using CodeLines.Lib.Processing;
 using CodeLines.Lib.Types;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace CodeLines.Lib
 {
@@ -16,7 +18,7 @@ namespace CodeLines.Lib
             LogLevel logLevel = LogLevel.Info,
             string skippedDirOrFilenames = "")
         {
-            DirOrFilename = CorrectedPath(dirOrFilename) ?? throw new ArgumentNullException(nameof(dirOrFilename));
+            DirOrFilename = CleanedPath(dirOrFilename) ?? throw new ArgumentNullException(nameof(dirOrFilename));
             MessageLinePrintFunc = messageLinePrintFunc ?? throw new ArgumentNullException(nameof(messageLinePrintFunc));
             LogLevel = logLevel;
 
@@ -25,9 +27,63 @@ namespace CodeLines.Lib
             _pipeline = new ProcessPipeline(dirOrFilename, _logger, skippedDirOrFilenames);
         }
 
-        private string CorrectedPath(string dirOrFilename)
+        private string CleanedPath(string dirOrFilename)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(dirOrFilename))
+            {
+                List<string> pathParts = new List<string>(
+                    dirOrFilename.Split(new char[] { '/', '\\' },
+                    StringSplitOptions.RemoveEmptyEntries));
+
+                List<int> indicesToBeRemoved = new List<int>();
+                int itbr = -1;
+                int currIndex = 0;
+
+                foreach (string pathPart in pathParts)
+                {
+                    if (pathPart != "..")
+                    {
+                        itbr = -1;
+                    }
+                    else
+                    {
+                        indicesToBeRemoved.Add(currIndex);
+
+                        if (itbr == -1)
+                        {
+                            itbr = currIndex - 1;
+                        }
+                        else
+                        {
+                            itbr--;
+                        }
+
+                        if (itbr >= 0)
+                        {
+                            indicesToBeRemoved.Add(itbr);
+                        }
+                    }
+
+                    currIndex++;
+                }
+
+                for (int i = 0; i < indicesToBeRemoved.Count; i++)
+                {
+                    int indexToBeRemoved = indicesToBeRemoved[i];
+
+                    pathParts.RemoveAt(indexToBeRemoved);
+
+                    for (int internalIndex = i + 1; internalIndex < indicesToBeRemoved.Count; internalIndex++)
+                    {
+                        if (indicesToBeRemoved[internalIndex] > indexToBeRemoved)
+                        {
+                            indicesToBeRemoved[internalIndex] = indicesToBeRemoved[internalIndex] - 1;
+                        }
+                    }
+                }
+            }
+
+            return dirOrFilename;
         }
 
         public void Process()
