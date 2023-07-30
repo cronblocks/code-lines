@@ -8,14 +8,15 @@
     <Company>$(Authors)</Company>
     <NeutralLanguage>en</NeutralLanguage>
     <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationIcon>Assets\Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CodeLines.Lib\CodeLines.Lib.csproj" />
+    <Content Include="Assets\Icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <ProjectReference Include="..\CodeLines.Lib\CodeLines.Lib.csproj" />
   </ItemGroup>
 
 </Project>
