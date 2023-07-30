@@ -14,4 +14,8 @@
     <ProjectReference Include="..\CodeLines.Lib\CodeLines.Lib.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\" />
+  </ItemGroup>
+
 </Project>
