@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
 
             <Label x:Name="pathLabel" Content="Path" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
-            <TextBox x:Name="pathTextBox" Grid.Column="1" Margin="3,0,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="pathTextBox" Grid.Column="1" Margin="3,0,0,0" TextWrapping="Wrap" VerticalContentAlignment="Center" TextChanged="OnPathTextBox_TextChanged"/>
             
             <Button x:Name="folderSelectionButton"
                     Content="Select"

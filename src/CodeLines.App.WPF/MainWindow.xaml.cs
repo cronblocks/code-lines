@@ -1,20 +1,44 @@
 ﻿using CodeLines.Lib;
 using CodeLines.Lib.Exceptions;
 using System;
+using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using WinForms = System.Windows.Forms;
 
 namespace CodeLines.App.WPF;
 
 public partial class MainWindow : Window
 {
+    private readonly Brush _pathTextBoxOriginalBg;
+    private readonly Brush _pathTextBoxErrorBg = new SolidColorBrush(Colors.HotPink);
+
     public MainWindow()
     {
         InitializeComponent();
+
+        _pathTextBoxOriginalBg = pathTextBox.Background;
     }
 
     private string _selectedPath = "";
+
+    private void OnPathTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        TextBox textBox = (TextBox)sender;
+
+        if (Directory.Exists(textBox.Text) == false)
+        {
+            textBox.Background = _pathTextBoxErrorBg;
+        }
+        else
+        {
+            textBox.Background = _pathTextBoxOriginalBg;
+        }
+
+        _selectedPath = textBox.Text;
+    }
 
     private void OnFolderSelectionButton_Click(object sender, RoutedEventArgs e)
     {
