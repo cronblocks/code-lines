@@ -9,6 +9,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>Assets\Icon.ico</ApplicationIcon>
+    <AssemblyName>$(MSBuildProjectName.Replace(".App.WPF", ""))</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
