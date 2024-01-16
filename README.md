@@ -10,3 +10,10 @@ Files and directories with the following names are ignored in the app:
   - *.vs*
   - *bin*
   - *obj*
+
+For ignoring these items, following lines are reproduced from *MainWindow.xaml.cs*:
+```csharp
+LinesCounter counter =
+        new LinesCounter(targetPath, PrintOutputLine,
+                skippedDirOrFilenames: ".git,.svn,.vs,bin,obj");
+```
