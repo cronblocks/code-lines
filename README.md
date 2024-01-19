@@ -1,6 +1,6 @@
 # CodeLines - ***v1.3***
 
-*CodeLines* is an application utility that counts the number of lines in a codebase having different programming languages using a simple GUI or Console interface while scanning a given folder recursively.
+*CodeLines* - a utility application, counts the number of lines in a codebase containing code in different programming languages using a simple GUI or Console interface while scanning a given folder contents recursively.
 
 <div align="center"><img src="./.bin/screenshot-2022-09-23 223938.png" width="100%" /></div>
 
