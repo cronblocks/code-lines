@@ -11,9 +11,10 @@ Files and directories that are ignored in recursive scan:
   - *bin*
   - *obj*
 
-For ignoring these items, following lines are reproduced from *MainWindow.xaml.cs*:
+Following lines from *MainWindow.xaml.cs* control which files / directories are to be ignored:
 ```csharp
 LinesCounter counter =
         new LinesCounter(targetPath, PrintOutputLine,
                 skippedDirOrFilenames: ".git,.svn,.vs,bin,obj");
 ```
+> You can make changes according to your requirements.
